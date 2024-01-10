@@ -341,9 +341,7 @@ export default function Component() {
               </CardContent>
             </Card>
           </div>
-          <div className="text-center">
-            <p style={{fontFamily:"monospace"}} className="text-lg">Your contribution will help us continue to protect your campus.</p>
-          </div>
+        
         </div>
       </main>
     </div>
