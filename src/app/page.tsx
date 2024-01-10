@@ -1,9 +1,9 @@
-import Index from './indexer/page';
+import Home from './home/page';
 export default function Page() {  
 
 
   return (
-<Index/>
+<Home/>
   );
 
 
