@@ -334,9 +334,7 @@ export default function Page() {
       <main className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-center items-center space-x-4">
-            <Button className="rounded-full bg-blue-500 p-4 text-white">
-              {/* <SearchIcon className="h-5 w-5 " /> */}
-            </Button>
+          
             <Input className=" bg-blue-800 flex-1 px-4 py-2 text-white " placeholder="Select Your Campus" type="search" />
           </div>
           <p style={{fontFamily:"monospace"}}className="text-center  mt-8 text-white">
