@@ -5,7 +5,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
-import './styles.css';
+
 import React from "react";
 // interface FileIconProps {
 //   className?: string;
