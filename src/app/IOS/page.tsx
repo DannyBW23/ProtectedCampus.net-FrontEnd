@@ -58,7 +58,7 @@ export default function Component() {
 <div style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
 
 
-<Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-10+at+3.53.57+PM.png"} alt="Image from S3" width= "150" height="150"
+<Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-10+at+3.53.57+PM.png"} alt="Image from S3" width= "300" height="100"
  />
 </div> 
 
