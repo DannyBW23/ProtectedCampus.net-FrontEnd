@@ -457,7 +457,7 @@ export default function Component() {
         </div>
       </header>
       <header  className="mb-8" >
-      <h2 style={{fontFamily:"monospace",fontSize: '32px'}}className=" text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
+      <h2 style={{fontFamily:"monospace",fontSize: '32px'}}className=" text-black text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
         <p style={{fontFamily:"monospace" }}className="text-black text-center mt-2">
           Your feedback is important to us. Please take a moment to answer the following questions. Protect your campus.
         </p>

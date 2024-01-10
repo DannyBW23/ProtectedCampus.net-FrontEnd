@@ -464,7 +464,7 @@ export default function Component() {
         </div>
        
         <div className="w-full max-w-2xl p-6 bg-white border-2 border-gray-400">
-          <h2 style={{fontFamily:"monospace"}}className="text-xl font-semibold mb-4">ANONYMOUS REPORT</h2>
+          <h2 style={{fontFamily:"monospace"}}className="text-xl text-black font-semibold mb-4">ANONYMOUS REPORT</h2>
           <div className="flex justify-between items-center p-4 border-2 border-gray-300">
             {/* <LinkIcon className="text-gray-600" />
             <BoldIcon className="text-gray-600" />
