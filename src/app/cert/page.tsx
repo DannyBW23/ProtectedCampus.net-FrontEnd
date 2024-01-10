@@ -251,7 +251,7 @@ export default function Component() {
             </div></h2>
             <div className="flex justify-center items-center space-x-4">
               <Link href="/medical">
-              <Button style={{fontFamily:"monospace"}}className="bg-gray-300 text- white hover:bg-gray-400 text-black rounded-md">
+              <Button style={{fontFamily:"monospace"}}className="bg-white text- white hover:bg-gray-400 text-black rounded-md">
                 MEDICAL TRAINING
               </Button>
               </Link>
