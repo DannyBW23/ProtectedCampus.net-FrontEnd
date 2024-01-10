@@ -326,7 +326,7 @@ export default function Component() {
         <TabsContent value="cpr" style={{ backgroundColor: ' #2774e0',fontFamily:"monospace" }}>
           <Card>
             <CardHeader style={{ backgroundColor: ' #0c264a',fontFamily:"monospace" }}>
-              <CardTitle style={{fontSize:"25px"}}>CPR (Cardiopulmonary Resuscitation)</CardTitle>
+              <CardTitle className="text-white"style={{fontSize:"25px"}}>CPR (Cardiopulmonary Resuscitation)</CardTitle>
             </CardHeader>
             <CardContent style={{ backgroundColor: ' #2774e0' ,fontFamily:"monospace", fontSize:"20px"}} className="space-y-2 " >
               <p>
