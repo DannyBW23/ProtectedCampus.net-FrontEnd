@@ -20,19 +20,6 @@ export default function Page() {
       });
   }, []);
 
-  // fetch('https://protectedcampus-97e06dea1380.herokuapp.com/api/time')
-  // .then(response => {
-  //   if (!response.ok) {
-  //     throw new Error('Network response was not ok ' + response.statusText);
-  //   }
-  //   return response.json();
-  // })
-  // .then(data => {
-  //   setCurrentTime(data.time);
-  // })
-  // .catch(error => {
-  //   console.error('There has been a problem with your fetch operation:', error);
-  // });
   return(
     <div style={{ backgroundColor: '#2774e0' }} className=" min-h-screen">
    <nav className="bg-white py-2">
