@@ -12,7 +12,7 @@ export default function Page() {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/time')
+    fetch('https://protectedcampus.com/api/time')
       .then(res => res.json())
       .then(data => {
         setCurrentTime(data.time);
@@ -74,7 +74,8 @@ export default function Page() {
           </p>
         </div>
       </main>
-      
+    <div>{currentTime}</div>
+   
    
 
     </div>
