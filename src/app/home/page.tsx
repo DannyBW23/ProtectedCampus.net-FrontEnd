@@ -13,7 +13,7 @@ export default function Page() {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch('https://protectedcampus.com/api/time')
+    fetch('https://protectedcampus-97e06dea1380.herokuapp.com ')
       .then(res => res.json())
       .then(data => {
         setCurrentTime(data.time);
