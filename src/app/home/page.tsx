@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import Image from 'next/image';
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-
+ 
 export default function Page() {
+  
   const [selectedSchool, setSelectedSchool] = useState<string>('');
   const [userInput, setUserInput] = useState<string>('');
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -128,9 +129,12 @@ export default function Page() {
                   ))}
                 </ul>
               )}
-              <Button type="submit" className="text-white bg-blue-600 hover:bg-blue-700">
-                Search
-              </Button>
+          <Link href={{
+  pathname: "/survey",
+  query: { selectedSchool } // Pass the selected school as a query parameter
+}}>
+  <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
+</Link>
             </div>
           </form>
         </div>
