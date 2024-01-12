@@ -38,7 +38,7 @@ export default function Page() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+      body: JSON.stringify({ school: selectedSchool, equipment: userInput }),  // Change 'user_input' to 'equipment'
     })
     .then(res => res.json())
     .then(response => {
@@ -129,12 +129,9 @@ export default function Page() {
                   ))}
                 </ul>
               )}
-          <Link href={{
-  pathname: "/survey",
-  query: { selectedSchool } // Pass the selected school as a query parameter
-}}>
-  <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
-</Link>
+         
+  <Button className="text-black bg-transparent hover:bg-gray-100">Search</Button>
+
             </div>
           </form>
         </div>

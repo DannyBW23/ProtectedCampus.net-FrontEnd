@@ -1,3 +1,131 @@
+"use client"
+
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+
+export default function Component() {
+  const [selectedSchool, setSelectedSchool] = useState('');
+  const [userInput, setUserInput] = useState('');
+  
+  const handleSchoolChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedSchool(event.target.value);
+  };
+
+  const handleUserInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Make a POST request to your Flask backend with selectedSchool and userInput
+    fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+    })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      {/* ... Other JSX code */}
+      <main>
+        <form onSubmit={handleSubmit} className="space-y-6 text-white">
+          <div style={{ fontFamily: "monospace", backgroundColor: ' #2774e0' }} className="w-full bg-white shadow-md rounded-lg p-4">
+            <fieldset className="space-y-2">
+              <legend style={{ fontFamily: "monospace" }} className="font-medium text-lg">
+                How would you rate the condition and maintenance of safety equipment in your school?
+              </legend>
+              <div className="space-y-1">
+                <label className="flex items-center">
+                  <input
+                    className="mr-2"
+                    name="equipment"
+                    type="radio"
+                    value="poor"
+                    checked={selectedSchool === "poor"}
+                    onChange={handleSchoolChange}
+                  />
+                  <span style={{ fontFamily: "monospace" }}>Poor</span>
+                </label>
+                <label className="flex items-center">
+                  <input
+                    className="mr-2"
+                    name="equipment"
+                    type="radio"
+                    value="fair"
+                    checked={selectedSchool === "fair"}
+                    onChange={handleSchoolChange}
+                  />
+                  <span style={{ fontFamily: "monospace" }}>Fair</span>
+                </label>
+                <label className="flex items-center">
+                  <input
+                    className="mr-2"
+                    name="equipment"
+                    type="radio"
+                    value="good"
+                    checked={selectedSchool === "good"}
+                    onChange={handleSchoolChange}
+                  />
+                  <span style={{ fontFamily: "monospace" }}>Good</span>
+                </label>
+                <label className="flex items-center">
+                  <input
+                    className="mr-2"
+                    name="equipment"
+                    type="radio"
+                    value="excellent"
+                    checked={selectedSchool === "excellent"}
+                    onChange={handleSchoolChange}
+                  />
+                  <span style={{ fontFamily: "monospace" }}>Excellent</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          {/* User input field */}
+          <div>
+            <label htmlFor="userInput" className="font-medium text-lg">User Input</label>
+            <input
+              type="text"
+              id="userInput"
+              name="userInput"
+              value={userInput}
+              onChange={handleUserInputChange}
+              className="bg-blue-800 flex-1 px-4 py-2 text-white"
+              placeholder="Enter User Input"
+            />
+          </div>
+          {/* Submit button */}
+          <div style={{ display: 'grid', placeItems: 'center' }}>
+            <button
+              style={{ fontFamily: "monospace", backgroundColor: ' #2774e0', marginTop: "5px", width: "100px" }}
+              className="center px-4 py-2 text-white rounded-md"
+              type="submit" // Change the button type to "submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </main>
+      {/* ... Other JSX code */}
+    </div>
+  );
+}
+
+
+
+
+
+
 
 
 
@@ -97,122 +225,122 @@
 // }
 
 
-"use client"
+// "use client"
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Image from 'next/image';
-import React, { useState } from "react";
+// import Link from "next/link";
+// import { Button } from "@/components/ui/button";
+// import Image from 'next/image';
+// import React, { useState } from "react";
 
-export default function Component() {
+// export default function Component() {
   
-  const [selectedEquipment, setSelectedEquipment] = useState<string>("");
+//   const [selectedEquipment, setSelectedEquipment] = useState<string>("");
 
-  const handleEquipmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedEquipment(event.target.value);
-  };
+//   const handleEquipmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     setSelectedEquipment(event.target.value);
+//   };
 
-  const submitFirstQuestion = async () => {
+//   const submitFirstQuestion = async () => {
   
-    if (!selectedEquipment) {
-      alert("Please select an equipment rating.");
-      return;
-    }
+//     if (!selectedEquipment) {
+//       alert("Please select an equipment rating.");
+//       return;
+//     }
 
-    try {
-      const response = await fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit-survey-response', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({equipment: selectedEquipment }),
-      });
+//     try {
+//       const response = await fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit-survey-response', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({equipment: selectedEquipment }),
+//       });
 
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log(responseData);
-      } else {
-        console.error('Error:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+//       if (response.ok) {
+//         const responseData = await response.json();
+//         console.log(responseData);
+//       } else {
+//         console.error('Error:', response.status, response.statusText);
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-  return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* ... Other JSX code */}
-      <main>
-        <form className="space-y-6 text-white">
-          <div style={{ fontFamily: "monospace", backgroundColor: ' #2774e0' }} className="w-full bg-white shadow-md rounded-lg p-4">
-            <fieldset className="space-y-2">
-              <legend style={{ fontFamily: "monospace" }} className="font-medium text-lg">
-                How would you rate the condition and maintenance of safety equipment in your school?
-              </legend>
-              <div className="space-y-1">
-                <label className="flex items-center">
-                  <input
-                    className="mr-2"
-                    name="equipment"
-                    type="radio"
-                    value="poor"
-                    checked={selectedEquipment === "poor"}
-                    onChange={handleEquipmentChange}
-                  />
-                  <span style={{ fontFamily: "monospace" }}>Poor</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    className="mr-2"
-                    name="equipment"
-                    type="radio"
-                    value="fair"
-                    checked={selectedEquipment === "fair"}
-                    onChange={handleEquipmentChange}
-                  />
-                  <span style={{ fontFamily: "monospace" }}>Fair</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    className="mr-2"
-                    name="equipment"
-                    type="radio"
-                    value="good"
-                    checked={selectedEquipment === "good"}
-                    onChange={handleEquipmentChange}
-                  />
-                  <span style={{ fontFamily: "monospace" }}>Good</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    className="mr-2"
-                    name="equipment"
-                    type="radio"
-                    value="excellent"
-                    checked={selectedEquipment === "excellent"}
-                    onChange={handleEquipmentChange}
-                  />
-                  <span style={{ fontFamily: "monospace" }}>Excellent</span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-          <div style={{ display: 'grid', placeItems: 'center' }}>
-            <button
-              style={{ fontFamily: "monospace", backgroundColor: ' #2774e0', marginTop: "5px", width: "100px" }}
-              className="center px-4 py-2 text-white rounded-md"
-              type="button"
-              onClick={submitFirstQuestion}
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </main>
-      {/* ... Other JSX code */}
-    </div>
-  );
-}
+//   return (
+//     <div className="bg-gray-100 min-h-screen">
+//       {/* ... Other JSX code */}
+//       <main>
+//         <form className="space-y-6 text-white">
+//           <div style={{ fontFamily: "monospace", backgroundColor: ' #2774e0' }} className="w-full bg-white shadow-md rounded-lg p-4">
+//             <fieldset className="space-y-2">
+//               <legend style={{ fontFamily: "monospace" }} className="font-medium text-lg">
+//                 How would you rate the condition and maintenance of safety equipment in your school?
+//               </legend>
+//               <div className="space-y-1">
+//                 <label className="flex items-center">
+//                   <input
+//                     className="mr-2"
+//                     name="equipment"
+//                     type="radio"
+//                     value="poor"
+//                     checked={selectedEquipment === "poor"}
+//                     onChange={handleEquipmentChange}
+//                   />
+//                   <span style={{ fontFamily: "monospace" }}>Poor</span>
+//                 </label>
+//                 <label className="flex items-center">
+//                   <input
+//                     className="mr-2"
+//                     name="equipment"
+//                     type="radio"
+//                     value="fair"
+//                     checked={selectedEquipment === "fair"}
+//                     onChange={handleEquipmentChange}
+//                   />
+//                   <span style={{ fontFamily: "monospace" }}>Fair</span>
+//                 </label>
+//                 <label className="flex items-center">
+//                   <input
+//                     className="mr-2"
+//                     name="equipment"
+//                     type="radio"
+//                     value="good"
+//                     checked={selectedEquipment === "good"}
+//                     onChange={handleEquipmentChange}
+//                   />
+//                   <span style={{ fontFamily: "monospace" }}>Good</span>
+//                 </label>
+//                 <label className="flex items-center">
+//                   <input
+//                     className="mr-2"
+//                     name="equipment"
+//                     type="radio"
+//                     value="excellent"
+//                     checked={selectedEquipment === "excellent"}
+//                     onChange={handleEquipmentChange}
+//                   />
+//                   <span style={{ fontFamily: "monospace" }}>Excellent</span>
+//                 </label>
+//               </div>
+//             </fieldset>
+//           </div>
+//           <div style={{ display: 'grid', placeItems: 'center' }}>
+//             <button
+//               style={{ fontFamily: "monospace", backgroundColor: ' #2774e0', marginTop: "5px", width: "100px" }}
+//               className="center px-4 py-2 text-white rounded-md"
+//               type="button"
+//               onClick={submitFirstQuestion}
+//             >
+//               Submit
+//             </button>
+//           </div>
+//         </form>
+//       </main>
+//       {/* ... Other JSX code */}
+//     </div>
+//   );
+// }
 
 
 
