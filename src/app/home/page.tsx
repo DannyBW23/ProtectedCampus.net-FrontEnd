@@ -36,7 +36,7 @@ export default function Page() {
   // Handle form submission
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
+    fetch('https://backended-f5e18146c5e2.herokuapp.com/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,12 +51,12 @@ export default function Page() {
 
   // Fetch data on component mount
   useEffect(() => {
-    fetch('https://backend44-e825943fce7b.herokuapp.com/api/schools')
+    fetch('https://backended-f5e18146c5e2.herokuapp.com/api/schools')
       .then(res => res.json())
       .then(schools => {
         // Handle schools data
       });
-    fetch('https://backend44-e825943fce7b.herokuapp.com/api/time')
+    fetch('https://backended-f5e18146c5e2.herokuapp.com/api/time')
       .then(res => res.json())
       .then(data => {
         setCurrentTime(data.time);
@@ -134,7 +134,7 @@ export default function Page() {
                 </ul>
               )}
   
-  <Link href="/survey">
+  <Link href="https://protectedcampus-97e06dea1380.herokuapp.com/survey">
   <Button
   type="submit"
   className="text-white bg-blue-600 hover:bg-blue-700"

@@ -465,10 +465,16 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
+import React, { useState } from 'react';
 
-import React from "react";
 
 export default function Component() {
+
+
+
+  
+  
+  
   return (
     <div className="bg-gray-100 min-h-screen">
     <nav className="bg-white py-2">
@@ -511,6 +517,7 @@ export default function Component() {
           <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTEDCAMPUS.COM</h1>
         </div>
       </header>
+      
       <header  className="mb-8" >
       <h2 style={{fontFamily:"monospace",fontSize: '32px'}}className=" text-black text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
         <p style={{fontFamily:"monospace" }}className="text-black text-center mt-2">
