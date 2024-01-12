@@ -461,6 +461,69 @@
 
 
 
+// import { useState } from 'react';
+
+// function MyForm() {
+//   const [selectedChoice, setSelectedChoice] = useState('');
+
+//   const handleChoiceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setSelectedChoice(e.target.value);
+//   };
+
+//   const handleSubmit = async () => {
+//     try {
+//       const response = await fetch('https://backended-f5e18146c5e2.herokuapp.com/save_choice', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ equipment: selectedChoice }),
+//       });
+
+//       if (response.ok) {
+//         console.log('Choice saved successfully');
+//         // Add any additional handling or feedback here
+//       } else {
+//         console.error('Failed to save choice');
+//         // Handle the error here
+//       }
+//     } catch (error) {
+//       console.error('Error:', error);
+//       // Handle network errors here
+//     }
+//   };
+
+//   return (
+//     <form className="space-y-6 text-white">
+//       {/* ... your form code ... */}
+//       <div className="space-y-1">
+//         <label className="flex items-center">
+//           <input
+//             className="mr-2"
+//             name="equipment"
+//             type="radio"
+//             value="poor"
+//             onChange={handleChoiceChange}
+//             checked={selectedChoice === 'poor'}
+//           />
+//           <span style={{ fontFamily: 'monospace' }}>Poor</span>
+//         </label>
+//         {/* ... Repeat for other options ... */}
+//       </div>
+//       <button
+//         type="button"
+//         onClick={handleSubmit}
+//         className="bg-blue-500 text-white py-2 px-4 rounded"
+//       >
+//         Save
+//       </button>
+//     </form>
+//   );
+// }
+
+// export default MyForm;
+
+
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
