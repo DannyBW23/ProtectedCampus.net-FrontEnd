@@ -134,7 +134,7 @@ export default function Page() {
                 </ul>
               )}
   
-  <Link href="https:www//protectedcampus.com/survey">
+  <Link href="/survey">
   <Button
   type="submit"
   className="text-white bg-blue-600 hover:bg-blue-700"
