@@ -1,4 +1,4 @@
-"useclient"
+"use client"
 
 
 import { Button } from "@/components/ui/button";
@@ -108,11 +108,11 @@ export default function Page() {
                 className="bg-blue-800 flex-1 px-4 py-2 text-white"
                 placeholder="Select Your Campus"
                 type="search"
-                value={selectedSchool}
+                value={searchQuery}
                 onChange={handleSchoolChange}
               />
-              {matchingSchools.length > 0 && (
-                <ul className="absolute z-10 mt-2 space-y-2 bg-white border border-gray-300 rounded-lg">
+                 {searchQuery.length > 0 && matchingSchools.length > 0 && (
+                <ul className="absolute z-10 mt-2 text-black space-y-2 bg-white border border-gray-300 rounded-lg">
                   {matchingSchools.map((school) => (
                     <li
                       key={school}
