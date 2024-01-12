@@ -119,8 +119,8 @@ export default function Page() {
                       className="cursor-pointer p-2 hover:bg-gray-200"
                       onClick={() => {
                         setSelectedSchool(school);
-                        setSearchQuery(school); // Populate the input with the selected school
-                        setMatchingSchools([]); // Hide suggestions
+                        setSearchQuery(school); 
+                        setMatchingSchools([]); 
                       }}
                     >
                       {school}
@@ -135,7 +135,7 @@ export default function Page() {
           </form>
         </div>
       </main>
-      <p style={{fontFamily:"monospace"}}className="text-center  mt-8 text-white">
+            <p style={{fontSize: "18px", fontFamily:"monospace"}}className="text-center  mt-8 text-white">
             In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to
             report it.
           </p>
