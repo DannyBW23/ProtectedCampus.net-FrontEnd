@@ -1,5 +1,6 @@
 "use client"
 
+
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
 export default function Component() {
@@ -16,13 +17,16 @@ export default function Component() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Make a POST request to your Flask backend with selectedSchool and userInput
+    // Attach "1" to indicate the question number
+    const response = `${selectedSchool}1`; // For the radio button responses
+    // You can also do the same for userInput if needed
+
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+      body: JSON.stringify({ school: selectedSchool, response: response }), // Include the modified response
     })
     .then((res) => res.json())
     .then((response) => {
@@ -32,12 +36,12 @@ export default function Component() {
       console.error(error);
     });
   };
-
   return (
     <div className="bg-gray-100 min-h-screen">
-      {/* ... Other JSX code */}
+
       <main>
         <form onSubmit={handleSubmit} className="space-y-6 text-white">
+          {/* Question 1 */}
           <div style={{ fontFamily: "monospace", backgroundColor: ' #2774e0' }} className="w-full bg-white shadow-md rounded-lg p-4">
             <fieldset className="space-y-2">
               <legend style={{ fontFamily: "monospace" }} className="font-medium text-lg">
