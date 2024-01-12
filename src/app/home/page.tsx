@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import Image from 'next/image';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,ChangeEvent, FormEvent } from 'react';
 
 
 export default function Page() {
@@ -14,42 +14,41 @@ export default function Page() {
   const [userInput, setUserInput] = useState('');
   const [currentTime, setCurrentTime] = useState(0);
 
-  const handleSchoolChange = (event) => {
+  const handleSchoolChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedSchool(event.target.value);
   };
 
-  const handleUserInputChange = (event) => {
+  const handleUserInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUserInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
     })
     .then(res => res.json())
     .then(response => {
-        console.log(response);
+      console.log(response);
     });
   };
 
   useEffect(() => {
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/schools')
-        .then(res => res.json())
-        .then(schools => {
-            
-        });
+      .then(res => res.json())
+      .then(schools => {
+        // Handle schools data
+      });
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/time')
-        .then(res => res.json())
-        .then(data => {
-            setCurrentTime(data.time);
-        });
+      .then(res => res.json())
+      .then(data => {
+        setCurrentTime(data.time);
+      });
   }, []);
-
   return(
     <div style={{ backgroundColor: '#2774e0' }} className=" min-h-screen">
    <nav className="bg-white py-2">
