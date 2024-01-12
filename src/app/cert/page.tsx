@@ -1,7 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/nWDKBwfHXAk
- */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
@@ -54,7 +50,7 @@ export default function Component() {
         <div className="max-w-4xl mx-auto px-4">
           <div style={{ backgroundColor: ' #2774e0' }} className="p-6 shadow rounded-lg text-center">
             <h2 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white mb-4">SAFETY CERTIFICATIONS     <div className="flex justify-center items-center space-y-4 flex-col mt-6">
-              {/* <BadgeCheckIcon className="text-white h-8 w-8 -mt-4" /> */}
+     
           
             </div></h2>
             <div className="flex justify-center items-center space-x-4">

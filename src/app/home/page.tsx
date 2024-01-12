@@ -10,10 +10,32 @@ import React, { useState, useEffect } from 'react';
 
 
 export default function Page() {
+  const [selectedSchool, setSelectedSchool] = useState('');
+const [userInput, setUserInput] = useState('');
+  const handleSubmit = () => {
+    // Assuming `selectedSchool` and `userInput` hold the necessary data
+    fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+    })
+    .then(res => res.json())
+    .then(response => {
+        // handle response
+    });
+};
   const [currentTime, setCurrentTime] = useState(0);
-
   useEffect(() => {
-    fetch('https://backend44-e825943fce7b.herokuapp.com/api/time')
+    fetch('https://backend44-e825943fce7b.herokuapp.com/api/schools')
+        .then(res => res.json())
+        .then(schools => {
+       
+        });
+}, []);
+  useEffect(() => {
+    fetch( 'https://backend44-e825943fce7b.herokuapp.com/api/time')
       .then(res => res.json())
       .then(data => {
         setCurrentTime(data.time);
@@ -67,6 +89,7 @@ export default function Page() {
           <div className="flex justify-center items-center space-x-4">
           
             <Input className=" bg-blue-800 flex-1 px-4 py-2 text-white " placeholder="Select Your Campus" type="search" />
+            
           </div>
           <p style={{fontFamily:"monospace"}}className="text-center  mt-8 text-white">
             In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to

@@ -1,7 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/nWDKBwfHXAk
- */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
