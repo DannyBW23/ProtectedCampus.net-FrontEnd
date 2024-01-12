@@ -19,7 +19,7 @@ export default function Page() {
     const query = event.target.value;
     setSearchQuery(query);
 
-    const schools = ["Stevenson", "Lehigh"];
+    const schools = ["Stevenson", "Lehigh", "Example School"];
 
     const matchingSchools = schools.filter((school) =>
       school.toLowerCase().includes(query.toLowerCase())
@@ -133,12 +133,11 @@ export default function Page() {
                   ))}
                 </ul>
               )}
-<Button
+           <Button
   type="submit"
   className="text-white bg-blue-600 hover:bg-blue-700"
   onClick={() => {
-    // Prepare the data to send to the server
-    const data = {
+    setSelectedSchool(searchQuery); const data = {
       school: searchQuery,
       user_input: userInput, // You can also send other data if needed
     };
@@ -156,11 +155,12 @@ export default function Page() {
       console.log(response);
       // Handle the response if needed
     });
+  
+
   }}
 >
   Search
 </Button>
-
             </div>
           </form>
         </div>
