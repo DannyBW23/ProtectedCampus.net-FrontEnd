@@ -36,17 +36,22 @@ export default function Page() {
   // Handle form submission
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const data = {
+      school: selectedSchool, // Use the selected school
+      user_input: userInput,
+    };
+  
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+      body: JSON.stringify(data),
     })
-    .then(res => res.json())
-    .then(response => {
-      console.log(response);
-    });
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   // Fetch data on component mount
