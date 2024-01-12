@@ -1,21 +1,28 @@
-'use client'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+"use client"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import Link from "next/link";
-
-
 import Image from 'next/image';
-
-import React, { useState, useEffect,ChangeEvent, FormEvent } from 'react';
-
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
 export default function Page() {
   const [selectedSchool, setSelectedSchool] = useState('');
   const [userInput, setUserInput] = useState('');
   const [currentTime, setCurrentTime] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [matchingSchools, setMatchingSchools] = useState<string[]>([]);
 
   const handleSchoolChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedSchool(event.target.value);
+    const query = event.target.value;
+    setSearchQuery(query);
+
+    // Make a GET request to /api/schools/search with the current search query
+    fetch(`/api/schools/search?name=${query}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the UI with the list of matching schools from the response
+        setMatchingSchools(data);
+      });
   };
 
   const handleUserInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -102,7 +109,23 @@ export default function Page() {
                 value={selectedSchool}
                 onChange={handleSchoolChange}
               />
-        
+                      {matchingSchools.length > 0 && (
+                <ul className="absolute z-10 mt-2 space-y-2 bg-white border border-gray-300 rounded-lg">
+                  {matchingSchools.map((school) => (
+                    <li
+                      key={school}
+                      className="cursor-pointer p-2 hover:bg-gray-200"
+                      onClick={() => {
+                        setSelectedSchool(school);
+                        setSearchQuery(school); // Populate the input with the selected school
+                        setMatchingSchools([]); // Hide suggestions
+                      }}
+                    >
+                      {school}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <Button type="submit" className="text-white bg-blue-600 hover:bg-blue-700">
                 Search
               </Button>
