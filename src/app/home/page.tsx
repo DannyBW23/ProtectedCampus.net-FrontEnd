@@ -135,7 +135,13 @@ export default function Page() {
           </form>
         </div>
       </main>
+      <p style={{fontFamily:"monospace"}}className="text-center  mt-8 text-white">
+            In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to
+            report it.
+          </p>
     </div>
+
+
   );
 }
 
