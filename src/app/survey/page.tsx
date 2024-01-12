@@ -1,5 +1,5 @@
+
 "use client"
-// Import the necessary dependencies
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
@@ -8,93 +8,86 @@ import { useRouter } from 'next/router';
 
 export default function Component() {
   if (typeof window !== 'undefined') {
+    const router = useRouter();
+    const { selectedSchool } = router.query;
 
-  const router = useRouter();
-  const { selectedSchool } = router.query; // Receive the selected school from the query parameter
+    const [selectedEquipment, setSelectedEquipment] = useState<string>("");
 
-  const [selectedEquipment, setSelectedEquipment] = useState<string>("");
+    const handleEquipmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSelectedEquipment(event.target.value);
+    };
 
-  const handleEquipmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedEquipment(event.target.value);
-  };
-
-  const submitFirstQuestion = async () => {
-    if (!selectedEquipment || !selectedSchool) {
-      alert("Please select a school and equipment rating.");
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/submit-survey-response', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ school: selectedSchool, equipment: selectedEquipment }),
-      });
-
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log(responseData);
-      } else {
-        console.error('Error:', response.status, response.statusText);
+    const submitFirstQuestion = async () => {
+      if (!selectedEquipment || !selectedSchool) {
+        alert("Please select a school and equipment rating.");
+        return;
       }
-    } catch (error) {
-      console.error(error);
-    }
+
+      try {
+        const response = await fetch('/api/submit-survey-response', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ school: selectedSchool, equipment: selectedEquipment }),
+        });
+
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log(responseData);
+        } else {
+          console.error('Error:', response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    return (
+      <div className="bg-gray-100 min-h-screen">
+        {/* ... Other JSX code */}
+        <main>
+          <form className="space-y-6 text-white">
+            <div style={{ fontFamily: "monospace", backgroundColor: ' #2774e0' }} className="w-full bg-white shadow-md rounded-lg p-4">
+              <fieldset className="space-y-2">
+                <legend style={{ fontFamily: "monospace" }} className="font-medium text-lg">
+                  How would you rate the condition and maintenance of safety equipment in your school?
+                </legend>
+                <div className="space-y-1">
+                  <label className="flex items-center">
+                    <input
+                      className="mr-2"
+                      name="equipment"
+                      type="radio"
+                      value="poor"
+                      checked={selectedEquipment === "poor"}
+                      onChange={handleEquipmentChange}
+                    />
+                    <span style={{ fontFamily: "monospace" }}>Poor</span>
+                  </label>
+                  {/* Add other radio buttons here */}
+                </div>
+              </fieldset>
+            </div>
+            <div style={{ display: 'grid', placeItems: 'center' }}>
+              <button
+                style={{ fontFamily: "monospace", backgroundColor: ' #2774e0', marginTop: "5px", width: "100px" }}
+                className="center px-4 py-2 text-white rounded-md"
+                type="button"
+                onClick={submitFirstQuestion}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </main>
+        {/* ... Other JSX code */}
+      </div>
+    );
   }
-  };
-  return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* ... Other JSX code */}
-      <main>
-        <form className="space-y-6 text-white">
-          <div style={{ fontFamily: "monospace", backgroundColor: ' #2774e0' }} className="w-full bg-white shadow-md rounded-lg p-4">
-            <fieldset className="space-y-2">
-              <legend style={{ fontFamily: "monospace" }} className="font-medium text-lg">
-                How would you rate the condition and maintenance of safety equipment in your school?
-              </legend>
-              <div className="space-y-1">
-                <label className="flex items-center">
-                  <input
-                    className="mr-2"
-                    name="equipment"
-                    type="radio"
-                    value="poor"
-                    checked={selectedEquipment === "poor"}
-                    onChange={handleEquipmentChange}
-                  />
-                  <span style={{ fontFamily: "monospace" }}>Poor</span>
-                </label>
-                {/* Add other radio buttons here */}
-              </div>
-            </fieldset>
-          </div>
-          <div style={{ display: 'grid', placeItems: 'center' }}>
-            <button
-              style={{ fontFamily: "monospace", backgroundColor: ' #2774e0', marginTop: "5px", width: "100px" }}
-              className="center px-4 py-2 text-white rounded-md"
-              type="button"
-              onClick={submitFirstQuestion}
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </main>
-      {/* ... Other JSX code */}
-    </div>
-  );
+  // You can add a fallback or return null here if needed
+  return null;
 }
-
-
-
-
-
-
-
-
-
 
 
 // "use client"
