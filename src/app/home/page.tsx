@@ -111,7 +111,7 @@ export default function Page() {
         </div>
       </main>
 
-      <div>{currentTime}</div>
+     
     </div>
   );
 }
