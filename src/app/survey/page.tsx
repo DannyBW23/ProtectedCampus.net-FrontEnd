@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 import React, { useState } from "react";
 import { useRouter } from 'next/router';
-// Add the Component code
+
 export default function Component() {
+  if (typeof window !== 'undefined') {
+
   const router = useRouter();
   const { selectedSchool } = router.query; // Receive the selected school from the query parameter
 
@@ -40,6 +42,7 @@ export default function Component() {
     } catch (error) {
       console.error(error);
     }
+  }
   };
   return (
     <div className="bg-gray-100 min-h-screen">
