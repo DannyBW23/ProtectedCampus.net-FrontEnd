@@ -11,9 +11,19 @@ import React, { useState, useEffect } from 'react';
 
 export default function Page() {
   const [selectedSchool, setSelectedSchool] = useState('');
-const [userInput, setUserInput] = useState('');
-  const handleSubmit = () => {
-    // Assuming `selectedSchool` and `userInput` hold the necessary data
+  const [userInput, setUserInput] = useState('');
+  const [currentTime, setCurrentTime] = useState(0);
+
+  const handleSchoolChange = (event) => {
+    setSelectedSchool(event.target.value);
+  };
+
+  const handleUserInputChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
         method: 'POST',
         headers: {
@@ -23,23 +33,21 @@ const [userInput, setUserInput] = useState('');
     })
     .then(res => res.json())
     .then(response => {
-        // handle response
+        console.log(response);
     });
-};
-  const [currentTime, setCurrentTime] = useState(0);
+  };
+
   useEffect(() => {
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/schools')
         .then(res => res.json())
         .then(schools => {
-       
+            
         });
-}, []);
-  useEffect(() => {
-    fetch( 'https://backend44-e825943fce7b.herokuapp.com/api/time')
-      .then(res => res.json())
-      .then(data => {
-        setCurrentTime(data.time);
-      });
+    fetch('https://backend44-e825943fce7b.herokuapp.com/api/time')
+        .then(res => res.json())
+        .then(data => {
+            setCurrentTime(data.time);
+        });
   }, []);
 
   return(
@@ -86,25 +94,25 @@ const [userInput, setUserInput] = useState('');
       </header>
       <main className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center items-center space-x-4">
-          
-            <Input className=" bg-blue-800 flex-1 px-4 py-2 text-white " placeholder="Select Your Campus" type="search" />
-            
-          </div>
-          <p style={{fontFamily:"monospace"}}className="text-center  mt-8 text-white">
-            In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to
-            report it.
-          </p>
+          <form onSubmit={handleSubmit}>
+            <div className="flex justify-center items-center space-x-4">
+              <Input
+                className="bg-blue-800 flex-1 px-4 py-2 text-white"
+                placeholder="Select Your Campus"
+                type="search"
+                value={selectedSchool}
+                onChange={handleSchoolChange}
+              />
+        
+              <Button type="submit" className="text-white bg-blue-600 hover:bg-blue-700">
+                Search
+              </Button>
+            </div>
+          </form>
         </div>
       </main>
-    <div>{currentTime}</div>
-   
-   
 
+      <div>{currentTime}</div>
     </div>
-
-
-   
   );
 }
-
