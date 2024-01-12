@@ -137,7 +137,7 @@ export default function Page() {
   type="submit"
   className="text-white bg-blue-600 hover:bg-blue-700"
   onClick={() => {
-    setSelectedSchool(searchQuery); const data = {
+    const data = {
       school: searchQuery,
       user_input: userInput, // You can also send other data if needed
     };
