@@ -19,7 +19,7 @@ export default function Page() {
     const query = event.target.value;
     setSearchQuery(query);
 
-    const schools = ["Stevenson", "Lehigh", "Example School"];
+    const schools = ["Stevenson University", "Lehigh University", "Harvard University"];
 
     const matchingSchools = schools.filter((school) =>
       school.toLowerCase().includes(query.toLowerCase())
