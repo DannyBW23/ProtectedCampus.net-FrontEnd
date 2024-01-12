@@ -1,4 +1,6 @@
-"use client"
+"useclient"
+
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -6,23 +8,26 @@ import Image from 'next/image';
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
 export default function Page() {
-  const [selectedSchool, setSelectedSchool] = useState('');
-  const [userInput, setUserInput] = useState('');
-  const [currentTime, setCurrentTime] = useState(0);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedSchool, setSelectedSchool] = useState<string>('');
+  const [userInput, setUserInput] = useState<string>('');
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [matchingSchools, setMatchingSchools] = useState<string[]>([]);
 
   const handleSchoolChange = (event: ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
     setSearchQuery(query);
-
-    // Make a GET request to /api/schools/search with the current search query
-    fetch(`/api/schools/search?name=${query}`)
-      .then((response) => response.json())
-      .then((data) => {
-        // Update the UI with the list of matching schools from the response
-        setMatchingSchools(data);
-      });
+  
+    // Create an array of schools (you can replace this with your actual data source)
+    const schools = ["Stevenson", "Lehigh", "Example School"]; // Add more schools as needed
+  
+    // Filter schools based on the search query
+    const matchingSchools = schools.filter((school) =>
+      school.toLowerCase().includes(query.toLowerCase())
+    );
+  
+    // Update the UI with the list of matching schools
+    setMatchingSchools(matchingSchools);
   };
 
   const handleUserInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -56,48 +61,45 @@ export default function Page() {
         setCurrentTime(data.time);
       });
   }, []);
-  return(
-    <div style={{ backgroundColor: '#2774e0' }} className=" min-h-screen">
-   <nav className="bg-white py-2">
+
+  return (
+    <div style={{ backgroundColor: '#2774e0' }} className="min-h-screen">
+      <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-4">
-  
-          <Link href="/report">
-            <Button className="text-black bg-transparent hover:bg-gray-100">
-              REPORT
-            </Button></Link>
+            <Link href="/report">
+              <Button className="text-black bg-transparent hover:bg-gray-100">
+                REPORT
+              </Button>
+            </Link>
             <Link href="survey">
-            <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
-            </Link>   
+              <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
+            </Link>
             <Link href="/directory">
-            <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
+              <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
             </Link>
             <Link href="/cert">
-            <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
+              <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
             </Link>
             <Link href="/IOS">
-            <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
+              <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-         
             <Link href="/home">
-            <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
+              <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
             </Link>
           </div>
         </div>
       </nav>
 
-      <header className=" -mt-1 text-white py-1 flex flex-col items-center">
-      <div style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
-
-
-<Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150" height="150"
- />
-</div> 
-      <h1 style={{ fontSize: '60px', fontFamily:"monospace" }}>PROTECTEDCAMPUS.COM</h1>
-
+      <header className="-mt-1 text-white py-1 flex flex-col items-center">
+        <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+          <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width="150" height="150" />
+        </div>
+        <h1 style={{ fontSize: '60px', fontFamily: "monospace" }}>PROTECTEDCAMPUS.COM</h1>
       </header>
+
       <main className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
           <form onSubmit={handleSubmit}>
@@ -109,7 +111,7 @@ export default function Page() {
                 value={selectedSchool}
                 onChange={handleSchoolChange}
               />
-                      {matchingSchools.length > 0 && (
+              {matchingSchools.length > 0 && (
                 <ul className="absolute z-10 mt-2 space-y-2 bg-white border border-gray-300 rounded-lg">
                   {matchingSchools.map((school) => (
                     <li
@@ -133,8 +135,167 @@ export default function Page() {
           </form>
         </div>
       </main>
-
-     
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client"
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import Link from "next/link";
+// import Image from 'next/image';
+// import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+
+// export default function Page() {
+//   const [selectedSchool, setSelectedSchool] = useState('');
+//   const [userInput, setUserInput] = useState('');
+//   const [currentTime, setCurrentTime] = useState(0);
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [matchingSchools, setMatchingSchools] = useState<string[]>([]);
+
+//   const handleSchoolChange = (event: ChangeEvent<HTMLInputElement>) => {
+//     const query = event.target.value;
+//     setSearchQuery(query);
+  
+//     // Create an array of schools
+//     const schools = ["Stevenson", "Lehigh", "Example School"]; // Add more schools as needed
+  
+//     // Filter schools based on the search query
+//     const matchingSchools = schools.filter((school) =>
+//       school.toLowerCase().includes(query.toLowerCase())
+//     );
+  
+//     // Update the UI with the list of matching schools
+//     setMatchingSchools(matchingSchools);
+//   };
+
+//   const handleUserInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+//     setUserInput(event.target.value);
+//   };
+
+//   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+//     event.preventDefault();
+//     fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
+//     })
+//     .then(res => res.json())
+//     .then(response => {
+//       console.log(response);
+//     });
+//   };
+
+//   useEffect(() => {
+//     fetch('https://backend44-e825943fce7b.herokuapp.com/api/schools')
+//       .then(res => res.json())
+//       .then(schools => {
+//         // Handle schools data
+//       });
+//     fetch('https://backend44-e825943fce7b.herokuapp.com/api/time')
+//       .then(res => res.json())
+//       .then(data => {
+//         setCurrentTime(data.time);
+//       });
+//   }, []);
+//   return(
+//     <div style={{ backgroundColor: '#2774e0' }} className=" min-h-screen">
+//    <nav className="bg-white py-2">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+//           <div className="flex items-center space-x-4">
+  
+//           <Link href="/report">
+//             <Button className="text-black bg-transparent hover:bg-gray-100">
+//               REPORT
+//             </Button></Link>
+//             <Link href="survey">
+//             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
+//             </Link>   
+//             <Link href="/directory">
+//             <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
+//             </Link>
+//             <Link href="/cert">
+//             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
+//             </Link>
+//             <Link href="/IOS">
+//             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
+//             </Link>
+//           </div>
+//           <div className="flex items-center space-x-4">
+         
+//             <Link href="/home">
+//             <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
+//             </Link>
+//           </div>
+//         </div>
+//       </nav>
+
+//       <header className=" -mt-1 text-white py-1 flex flex-col items-center">
+//       <div style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
+
+
+// <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150" height="150"
+//  />
+// </div> 
+//       <h1 style={{ fontSize: '60px', fontFamily:"monospace" }}>PROTECTEDCAMPUS.COM</h1>
+
+//       </header>
+//       <main className="px-4 sm:px-6 lg:px-8 py-8">
+//         <div className="max-w-7xl mx-auto">
+//           <form onSubmit={handleSubmit}>
+//             <div className="flex justify-center items-center space-x-4">
+//               <Input
+//                 className="bg-blue-800 flex-1 px-4 py-2 text-white"
+//                 placeholder="Select Your Campus"
+//                 type="search"
+//                 value={selectedSchool}
+//                 onChange={handleSchoolChange}
+//               />
+//                       {matchingSchools.length > 0 && (
+//                 <ul className="absolute z-10 mt-2 space-y-2 bg-white border border-gray-300 rounded-lg">
+//                   {matchingSchools.map((school) => (
+//                     <li
+//                       key={school}
+//                       className="cursor-pointer p-2 hover:bg-gray-200"
+//                       onClick={() => {
+//                         setSelectedSchool(school);
+//                         setSearchQuery(school); // Populate the input with the selected school
+//                         setMatchingSchools([]); // Hide suggestions
+//                       }}
+//                     >
+//                       {school}
+//                     </li>
+//                   ))}
+//                 </ul>
+//               )}
+//               <Button type="submit" className="text-white bg-blue-600 hover:bg-blue-700">
+//                 Search
+//               </Button>
+//             </div>
+//           </form>
+//         </div>
+//       </main>
+
+     
+//     </div>
+//   );
+// }
