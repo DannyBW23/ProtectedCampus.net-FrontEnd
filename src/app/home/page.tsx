@@ -36,22 +36,17 @@ export default function Page() {
   // Handle form submission
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = {
-      school: selectedSchool, // Use the selected school
-      user_input: userInput,
-    };
-  
     fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ school: selectedSchool, user_input: userInput }),
     })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response);
-      });
+    .then(res => res.json())
+    .then(response => {
+      console.log(response);
+    });
   };
 
   // Fetch data on component mount
@@ -138,34 +133,19 @@ export default function Page() {
                   ))}
                 </ul>
               )}
-           <Button
+  
+  <Link href="https:www//protectedcampus.com/survey">
+  <Button
   type="submit"
   className="text-white bg-blue-600 hover:bg-blue-700"
   onClick={() => {
-    const data = {
-      school: searchQuery,
-      user_input: userInput, // You can also send other data if needed
-    };
-
-    // Make an HTTP POST request to your backend
-    fetch('https://backend44-e825943fce7b.herokuapp.com/api/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then((res) => res.json())
-    .then((response) => {
-      console.log(response);
-      // Handle the response if needed
-    });
-  
-
+    // setSelectedSchool(searchQuery);
   }}
 >
   Search
+
 </Button>
+</Link>
             </div>
           </form>
         </div>
