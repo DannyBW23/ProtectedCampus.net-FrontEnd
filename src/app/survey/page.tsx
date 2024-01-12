@@ -92,18 +92,7 @@ export default function Component() {
             </fieldset>
           </div>
           {/* User input field */}
-          <div>
-            <label htmlFor="userInput" className="font-medium text-lg">User Input</label>
-            <input
-              type="text"
-              id="userInput"
-              name="userInput"
-              value={userInput}
-              onChange={handleUserInputChange}
-              className="bg-blue-800 flex-1 px-4 py-2 text-white"
-              placeholder="Enter User Input"
-            />
-          </div>
+    
           {/* Submit button */}
           <div style={{ display: 'grid', placeItems: 'center' }}>
             <button
