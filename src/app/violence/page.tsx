@@ -1,4 +1,4 @@
-
+"use client"
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -6,38 +6,37 @@ import Link from "next/link";
 import Image from 'next/image';
 import React from "react";
 
-
-
+import { useSearchParams } from "next/navigation";
 export default function Component() {
+  const searchParams = useSearchParams()
+  const selectedSchool = searchParams.get('selectedSchool');
   return (
     <div className="bg-gray-200 min-h-screen">
-<nav className="bg-white py-2">
+    <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-4">
-  
-          <Link href="/report">
-            <Button className="text-black bg-transparent hover:bg-gray-100">
-              REPORT
-            </Button></Link>
-            <Link href="survey">
+          <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
+             <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
+            </Link>
+            <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
             </Link>   
-            <Link href="/directory">
+            <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
             </Link>
-            <Link href="/cert">
+            <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
             </Link>
-            <Link href="/IOS">
+      <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
           </div>
           <div className="flex items-center space-x-4">
          
-            <Link href="/home">
-            <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
-            </Link>
-          </div>
+         <Link href="/home">
+         <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
+         </Link>
+       </div>
         </div>
       </nav>
       <header style={{ backgroundColor: ' #2774e0' }}  className=" shadow">
