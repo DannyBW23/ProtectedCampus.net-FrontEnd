@@ -126,9 +126,9 @@ export default function Page() {
       </header>
 
       <main className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative"> 
           <form onSubmit={handleSubmit}>
-            <div className="flex justify-center items-center space-x-4">
+            <div className="flex justify-left items-center space-x-4 relative">
               <Input
                 className="bg-blue-800 flex-1 px-4 py-2 text-white"
                 placeholder="Select Your Campus and Press Search"
@@ -136,23 +136,7 @@ export default function Page() {
                 value={searchQuery}
                 onChange={handleSchoolChange}
               />
-              {searchQuery.length > 0 && matchingSchools.length > 0 && (
-                <ul className="absolute z-10 mt-2 text-black space-y-2 bg-white border border-gray-300 rounded-lg">
-                  {matchingSchools.map((school) => (
-                    <li
-                      key={school}
-                      className="cursor-pointer p-2 hover:bg-gray-200"
-                      onClick={() => {
-                        
-                        setSearchQuery(school);
-                        setMatchingSchools([]);
-                      }}
-                    >
-                      {school}
-                    </li>
-                  ))}
-                </ul>
-              )}
+  
 
   <Button
   type="submit"
@@ -165,10 +149,34 @@ export default function Page() {
             </div>
           </form>
         </div>
+        {searchQuery.length > 0 && matchingSchools.length > 0 && (
+                
+                <ul className="absolute z-10 left-20 text-black space-y-2 bg-white border border-gray-300 rounded-lg ">
+                             {matchingSchools.map((school) => (
+                               <li
+                                 key={school}
+                                 className="cursor-pointer p-2 hover:bg-gray-200"
+                                 onClick={() => {
+                                   
+                                   setSearchQuery(school);
+                                   setMatchingSchools([]);
+                                 }}
+                               >
+                                 {school}
+                               </li>
+                             ))}
+                           </ul>
+                       
+                         )} 
       </main>
+
+
+
       <p style={{ fontSize: "18px", fontFamily: "monospace" }} className="text-center mt-8 text-white">
         In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to report it.
       </p>
+     
     </div>
+    
   );
 }

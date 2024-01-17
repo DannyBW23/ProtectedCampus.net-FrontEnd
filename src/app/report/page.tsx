@@ -45,10 +45,9 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
           Body: selectedFile,
         };
 
-        // Upload the file to S3
         const response = await s3.upload(params).promise();
 
-        // Get the URL of the uploaded file
+
         const fileUrl = response.Location;
 
         onFileUpload(fileUrl);
@@ -59,7 +58,7 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
     }
   };
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTextInput(event.target.value); // Update text input state
+    setTextInput(event.target.value); 
   };
     const handleTextSubmit = async () => {
       const payload = { textInput: textInput, school: selectedSchool };
@@ -91,29 +90,32 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
 
     
     <div>
-      <div className="mt-6 ml-5 p-4 text-center">
-        <p style={{ fontFamily: "monospace", color: "black" }} className="text-gray-500">
+      <div className="rounded-t-lg mt-6 p-4 ml-20 mr-20 text-center" style={{backgroundColor:"black" ,marginTop: "20px",}}>
+        <p style={{ fontFamily: "monospace", color: "white" ,fontSize:"15px" }} >
           {selectedFile
             ? `Selected File: ${selectedFile.name}`
             : "Drag and drop files here or click to add text."}
         </p>
         <input
+       className="mt-5"
           type="file"
+          placeholder="Upload a file"
           accept=".jpg, .jpeg, .png, .pdf, .docx"
           onChange={handleFileChange}
         />
-        <button style={{marginRight:"25px"}}className= " text-black"onClick={handleUpload}>Upload</button>
+        <button style={{marginRight:"10px"}}className= " text-white"onClick={handleUpload}>Upload</button>
       </div>
-      <div className="mt-2 p-4 border-2 text-center">
+      <div className="rounded-b-lg mr-20 ml-20 text-center" style={{backgroundColor:"black"}}>
       <input
+  
         type="text"
         value={textInput}
         onChange={handleTextChange}
         placeholder="Enter text"
-        className="border-2 text-black border-gray-300 p-2"
+        className="mt-5 mb-5  border-2 text-black border-gray-300 p-2"
 
       />
-        <Button onClick={handleTextSubmit}>Save Text</Button>
+        <Button className="ml-3" onClick={handleTextSubmit}>Save Text</Button>
       </div>
     </div>
   );
@@ -161,8 +163,9 @@ ANONYMOUS REPORTING
 
 
 </header>
-      <Select>
-            <SelectTrigger id="university">
+      <Select >
+            <SelectTrigger className="mt-5" id="university">
+
               <SelectValue className="text-blue-500" placeholder="Describe your situation" />
            
             </SelectTrigger>
