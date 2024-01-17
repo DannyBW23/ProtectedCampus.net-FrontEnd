@@ -11,7 +11,12 @@ const schools: string[] = ["Stevenson University", "Lehigh University", "Harvard
 export default function Page() {
 
 
-      
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
 
 
   const [selectedSchool, setSelectedSchool] = useState<string | null>(null); 
