@@ -15,10 +15,10 @@ app
     const server = express();
 
     server.use((req, res, next) => {
-      const hostname = req.hostname === 'www.app.domain.com' ? 'app.domain.com' : req.hostname;
+      const hostname = req.hostname === 'www.protectedcampus.com' ? 'protectedcampus.com' : req.hostname;
 
-      if (req.headers['x-forwarded-proto'] === 'http' || req.hostname === 'www.app.domain.com') {
-        res.redirect(301, `https://${hostname}${req.url}`);
+      if (req.headers['x-forwarded-proto'] === 'http' && req.hostname === 'www.protectedcampus.com') {
+        res.redirect(301, `https://${hostname}`);
         return;
       }
 
