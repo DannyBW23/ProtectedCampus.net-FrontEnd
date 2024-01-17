@@ -6,15 +6,25 @@ const nextConfig = {
   };
   module.exports = {
   
-      // async redirects() {
-      //   return [
-      //     {
-      //       source: '/',
-      //       destination: '/home',
-      //       permanent: true,
-      //     },
-      //   ];
-      // },
+    async redirects() {
+      return [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: '(www\\.)?protectedcampus\\.com',
+            },
+            {
+              type: 'protocol',
+              value: 'http',
+            },
+          ],
+          permanent: true,
+          destination: 'https://protectedcampus.com/:path*',
+        },
+      ];
+    },
     
   images: {
     loader: 'akamai',
