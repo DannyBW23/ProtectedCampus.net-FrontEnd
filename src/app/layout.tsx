@@ -15,10 +15,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-   <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
-            <img src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width="150" height="150" />
-          </div>
-    </html>
+  
   )
 }
