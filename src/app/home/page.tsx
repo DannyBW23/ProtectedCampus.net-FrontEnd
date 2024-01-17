@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 const schools: string[] = ["Stevenson University", "Lehigh University", "Harvard University"];
 
 export default function Page() {
-
+<head><meta name="viewport" content="width=device-width, intial-scale=.8"/></head>
 
   useEffect(() => {
     var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
