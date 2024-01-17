@@ -7,7 +7,7 @@ import Image from 'next/image';
 import React, { useState, useEffect, ChangeEvent, FormEvent, createContext, useContext,  ReactNode } from 'react';
 import { useRouter } from "next/navigation";
 const schools: string[] = ["Stevenson University", "Lehigh University", "Harvard University"];
-
+import Head from 'next/head';
 export default function Page() {
 <head><meta name="viewport" content="width=device-width, intial-scale=.8"/></head>
 
@@ -84,6 +84,10 @@ export default function Page() {
       });
   }, []);
   return (
+    <>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    </Head>
     <div style={{ backgroundColor: '#2774e0' }} className="min-h-screen">
       <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -170,5 +174,6 @@ export default function Page() {
         In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to report it.
       </p>
     </div>
+    </>
   );
 }
