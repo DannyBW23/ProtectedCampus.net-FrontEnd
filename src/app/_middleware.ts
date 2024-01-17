@@ -1,17 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
-
-type Environment = "production" | "development" | "other";
+import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const headers = new Headers(request.headers);
+  const isHttps = request.headers.get('x-forwarded-proto')?.startsWith('https');
+  const isLocalhost = request.headers.get('host')?.includes('localhost');
 
-  const currentEnv = process.env.NODE_ENV as Environment;
-  const isHttps = headers.get("x-forwarded-proto")?.split(",")[0] === "https";
-  const isLocalhost = request.headers.get("host")?.includes("localhost");
-
-  if (currentEnv === "production" && !isHttps && !isLocalhost) {
-    const newUrl = new URL(`http://${headers.get("host")}` || "");
-    newUrl.protocol = "https:";
-    return NextResponse.redirect(newUrl.href, 301);
+  // Check if the environment is production, the connection is not HTTPS, and the host is not localhost
+  if (process.env.NODE_ENV === 'production' && !isHttps && !isLocalhost) {
+    // Construct the new URL with HTTPS
+    const url = new URL(request.url);
+    url.protocol = 'https:';
+    return NextResponse.redirect(url.href, 301);
   }
+
+  return NextResponse.next();
 }
