@@ -4,11 +4,17 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 
 
 import { useSearchParams, useRouter } from 'next/navigation'
 export default function Component() {
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
   const router = useRouter();
   const [selectedChoice, setSelectedChoice] = useState<string>('');
   const [selectedChoice2, setSelectedChoice2] = useState<string>('');

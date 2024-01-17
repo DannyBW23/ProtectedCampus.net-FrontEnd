@@ -4,9 +4,15 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, {useEffect} from "react";
 import { useSearchParams } from "next/navigation";
 export default function Component() {
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
   const searchParams = useSearchParams()
   const selectedSchool = searchParams.get('selectedSchool');
   return (

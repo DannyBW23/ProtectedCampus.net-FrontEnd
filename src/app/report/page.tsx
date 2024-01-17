@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import AWS from 'aws-sdk';
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
@@ -10,6 +10,12 @@ import { useSearchParams } from 'next/navigation';
 
 
 export default function Component() {
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
 const bucketName = "profilepic23";
 
 const searchParams = useSearchParams()
