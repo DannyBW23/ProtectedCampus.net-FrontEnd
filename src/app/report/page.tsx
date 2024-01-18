@@ -350,7 +350,9 @@ ANONYMOUS REPORTING
         </Select>
         <div className="flex flex-col space-y-4 mb-6 p-6 bg-white border border-gray-300 rounded-md">
           <div className="flex justify-center items-center w-full h-32 bg-gray-100 border-2 border-dashed border-gray-300 rounded-md cursor-pointer mb-4">
-            <span className="text-gray-500">Click "Choose File" to select a file and then pess "Upload" to report it</span>
+          <span className="text-gray-500">Click &quot;Choose File&quot; to select a file and then press &quot;Upload&quot; to report it</span>
+
+
           </div>
           <div className="flex justify-between">
             <label className="block">
