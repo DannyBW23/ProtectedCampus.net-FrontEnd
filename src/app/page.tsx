@@ -5,7 +5,7 @@ export default function Page() {
   return (
    <>
 
-        {/* Global meta tags and links */}
+
 
 <Home/>
 </>

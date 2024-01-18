@@ -96,7 +96,7 @@ export default function Page() {
                   </Button>
                 </Link>
                 <Link href="survey">
-                  <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
                 </Link>
                 <Link href="/directory">
                   <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>

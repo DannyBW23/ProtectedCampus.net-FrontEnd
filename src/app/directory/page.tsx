@@ -24,7 +24,7 @@ export default function Component() {
              <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
             </Link>
             <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
-            <Button className="text-black bg-transparent hover:bg-gray-100">SURVEYS</Button>
+            <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
             </Link>   
             <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
