@@ -218,73 +218,7 @@ const bucketName = "profilepic23";
 
 const searchParams = useSearchParams()
 const selectedSchool = searchParams.get('selectedSchool');
-interface FileUploadProps {
-  onFileUpload: (fileUrl: string) => void;
-}
 
-const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [textInput, setTextInput] = useState<string>(""); 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      setSelectedFile(files[0]);
-    }
-  };
- 
-  const handleUpload = async () => {
-    if (selectedFile) {
-      try {
-        const s3 = new AWS.S3();
-
-        const params = {
-          Bucket: bucketName,
-          Key: selectedFile.name,
-          Body: selectedFile,
-        };
-
-        const response = await s3.upload(params).promise();
-
-
-        const fileUrl = response.Location;
-
-        onFileUpload(fileUrl);
-        setSelectedFile(null);
-      } catch (error) {
-        console.error("Error uploading file:", error);
-      }
-    }
-  };
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTextInput(event.target.value); 
-  };
-    const handleTextSubmit = async () => {
-      const payload = { textInput: textInput, school: selectedSchool };
-      console.log("Payload:", payload);
-    try {
-      
-      console.log("Selected School:", selectedSchool);
-      const response = await fetch("https://backended-f5e18146c5e2.herokuapp.com/api/saveTextToDatabase", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ textInput:textInput, schools:selectedSchool }),
-      });
-
-      if (response.ok) {
-        // Text saved successfully
-        console.log("Text saved successfully!");
-        setTimeout(() => window.location.reload(), 2000); 
-      } else {
-        // Handle error
-        console.error("Error saving text to the database.");
-      }
-    } catch (error) {
-      console.error("Error sending request:", error);
-    }
-  };
-}
   return (
     
     <div className="bg-gray-200 min-h-screen justify-center items-center">
@@ -329,7 +263,7 @@ ANONYMOUS REPORTING
 
 </header>
       <div className="max-w-4xl mx-auto p-6">
-        <Select className="mb-6">
+        <Select >
           <SelectTrigger id="situation">
             <SelectValue placeholder="Describe your situation" />
           </SelectTrigger>
@@ -364,10 +298,13 @@ ANONYMOUS REPORTING
         <div className="flex flex-col space-y-4">
           <Textarea className="mb-4 h-32 border-gray-300" placeholder="Enter your text here." />
           <Button className="bg-blue-600 hover:bg-blue-700 text-white">Save Text</Button>
+            
         </div>
       </div>
+      
       </div>
-    
+ 
   )
+
 }
 
