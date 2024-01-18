@@ -57,7 +57,6 @@ export default function Page() {
         setSelectedSchool(null);
   
       }
-      // Handle the case where selectedSchool is null
       console.error("No school selected");
     fetch('https://backended-f5e18146c5e2.herokuapp.com/api/submit', {
       method: 'POST',
@@ -91,21 +90,21 @@ export default function Page() {
             {selectedSchool && ( 
               <>
                 <Link href="/report">
-                  <Button className="text-black bg-transparent hover:bg-gray-100">
+                  <Button className="text-black bg-transparent ">
                     REPORT
                   </Button>
                 </Link>
                 <Link href="survey">
-                  <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
+                  <Button className="text-black bg-transparent">SURVEY</Button>
                 </Link>
                 <Link href="/directory">
-                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
+                  <Button className="text-black bg-transparent ">DONATIONS</Button>
                 </Link>
                 <Link href="/cert">
-                  <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
+                  <Button className="text-black bg-transparent">CERTIFICATIONS</Button>
                 </Link>
                 <Link href="/IOS">
-                  <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
+                  <Button className="text-black bg-transparent ">PROTOTYPE APP</Button>
                 </Link>
               </>
             )}

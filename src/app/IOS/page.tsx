@@ -20,7 +20,7 @@ const selectedSchool = searchParams.get('selectedSchool');
           <div className="flex items-center space-x-4">
   
           <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
-             <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
+             <Button className="text-black bg-transparent ">REPORT</Button>
             </Link>
             <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
@@ -38,7 +38,7 @@ const selectedSchool = searchParams.get('selectedSchool');
           <div className="flex items-center space-x-4">
          
          <Link href="/home">
-         <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
+         <Button className="text-black bg-transparent ">HOME</Button>
          </Link>
        </div>
         </div>
