@@ -6,12 +6,12 @@ import React, {useEffect} from 'react';
 import { useSearchParams } from 'next/navigation';
 export default function Component() 
 { 
-//   useEffect(() => {
-//   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-//   if (httpTokens) {
-//     window.location.replace('https://' + httpTokens[1]);
-//   }
-// }, []); 
+  useEffect(() => {
+  var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+  if (httpTokens) {
+    window.location.replace('https://' + httpTokens[1]);
+  }
+}, []); 
   const searchParams = useSearchParams()
 const selectedSchool = searchParams.get('selectedSchool');
   return (
