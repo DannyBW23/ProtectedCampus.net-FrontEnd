@@ -90,28 +90,28 @@ export default function Page() {
             {selectedSchool && ( 
               <>
                 <Link href="/report">
-                  <Button className="text-black ">
+                  <Button className="text-black bg-transparent hover:bg-gray-100">
                     REPORT
                   </Button>
                 </Link>
                 <Link href="survey">
-                  <Button className="text-black">SURVEY</Button>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
                 </Link>
                 <Link href="/directory">
-                  <Button className="text-black  ">DONATIONS</Button>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
                 </Link>
                 <Link href="/cert">
-                  <Button className="text-black ">CERTIFICATIONS</Button>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
                 </Link>
                 <Link href="/IOS">
-                  <Button className="text-black  ">PROTOTYPE APP</Button>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
                 </Link>
               </>
             )}
           </div>
           <div className="flex items-center space-x-4">
             <Link href="/home">
-              <Button className="text-black">HOME</Button>
+              <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
             </Link>
           </div>
         </div>
