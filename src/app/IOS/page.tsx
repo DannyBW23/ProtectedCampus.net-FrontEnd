@@ -5,12 +5,13 @@ import Image from 'next/image';
 import React, {useEffect} from 'react';
 import { useSearchParams } from 'next/navigation';
 export default function Component() 
-{ useEffect(() => {
-  var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-  if (httpTokens) {
-    window.location.replace('https://' + httpTokens[1]);
-  }
-}, []); 
+{ 
+//   useEffect(() => {
+//   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+//   if (httpTokens) {
+//     window.location.replace('https://' + httpTokens[1]);
+//   }
+// }, []); 
   const searchParams = useSearchParams()
 const selectedSchool = searchParams.get('selectedSchool');
   return (
@@ -56,14 +57,14 @@ const selectedSchool = searchParams.get('selectedSchool');
       </header>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
       <a href="https://share.proto.io/KJGY04/" target="_blank" rel="noopener noreferrer">
-    <Button className="text-black bg-gray-500 hover:bg-gray-500">PROTO LINK</Button>
+    <Button className=" text-black bg-gray-500 hover:bg-gray-500">PROTO LINK</Button>
 </a>
 
 </div>
 <div style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
 
 
-<Image src={"https://profilepic23.s3.amazonaws.com/Review++Thumbnail+++Headphone++Technology++Gold++Modern++Youtube+Channel+Thumbnail+(6).png"} alt="Image from S3" width= "1000" height="600"
+<Image src={"https://profilepic23.s3.amazonaws.com/Review++Thumbnail+++Headphone++Technology++Gold++Modern++Youtube+Channel+Thumbnail+(6).png"} alt="Image from S3" width= "1450" height="600"
  />
 </div> 
 
