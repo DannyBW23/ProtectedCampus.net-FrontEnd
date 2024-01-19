@@ -20,25 +20,25 @@ export default function Component() {
           <div className="flex items-center space-x-4">
   
           <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
-             <Button className="text-black bg-transparent ">REPORT</Button>
+             <Button className="text-black ">REPORT</Button>
             </Link>
             <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
-            <Button className="text-black bg-transparent ">SURVEY</Button>
+            <Button className="text-black  ">SURVEY</Button>
             </Link>   
             <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
-            <Button className="text-black bg-transparent ">DONATIONS</Button>
+            <Button className="text-black ">DONATIONS</Button>
             </Link>
             <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
-            <Button className="text-black bg-transparent">CERTIFICATIONS</Button>
+            <Button className="text-black">CERTIFICATIONS</Button>
             </Link>
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
-            <Button className="text-black bg-transparent ">PROTOTYPE APP</Button>
+            <Button className="text-black  ">PROTOTYPE APP</Button>
             </Link>
           </div>
           <div className="flex items-center space-x-4">
          
          <Link href="/home">
-         <Button className="text-black bg-transparent ">HOME</Button>
+         <Button className="text-black ">HOME</Button>
          </Link>
        </div>
         </div>
