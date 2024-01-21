@@ -147,10 +147,9 @@ export default function Page() {
 
             </div>
           </form>
-        </div>
-        {searchQuery.length > 0 && matchingSchools.length > 0 && (
+          {searchQuery.length > 0 && matchingSchools.length > 0 && (
                 
-                <ul className="absolute z-10 left-20 text-black space-y-2 bg-white border border-gray-300 rounded-lg max-h-80 overflow-auto">
+                <ul className="absolute z-10  text-black space-y-2 bg-white border border-gray-300 rounded-lg max-h-80 overflow-auto">
                              {matchingSchools.map((school) => (
                                <li
                                  key={school}
@@ -167,6 +166,8 @@ export default function Page() {
                            </ul>
                        
                          )} 
+        </div>
+     
       </main>
 
 
