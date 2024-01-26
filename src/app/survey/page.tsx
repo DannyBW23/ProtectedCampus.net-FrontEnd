@@ -7,14 +7,21 @@ import Image from 'next/image';
 import React, { FormEvent, useState, useEffect } from 'react';
 
 
+
 import { useSearchParams, useRouter } from 'next/navigation'
+
 export default function Component() {
+ 
+
   useEffect(() => {
     var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
     if (httpTokens) {
       window.location.replace('https://' + httpTokens[1]);
     }
   }, []); 
+
+  
+  const [color, setColor] = useState("pink");
   const router = useRouter();
   const [selectedChoice, setSelectedChoice] = useState<string>('');
   const [selectedChoice2, setSelectedChoice2] = useState<string>('');
@@ -36,9 +43,11 @@ export default function Component() {
   
   const handleChoiceChange4 = (value: string) => {
     setSelectedChoice4(value);
+
   };
   const handleChoiceChange5 = (value: string) => {
     setSelectedChoice5(value);
+  
   };
   
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -230,9 +239,12 @@ export default function Component() {
           <div className="flex-row  items-center">
           <Button  type="button" 
       style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+      className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
       variant="default" 
-      onClick={() => handleChoiceChange4('1')}
+      onClick={() =>{ handleChoiceChange4('1');
+      setColor("pink")
+    }}
+      
     >
       1
     </Button>
@@ -312,6 +324,7 @@ export default function Component() {
             </div>
           
         </div>
+        
         <div style={{ backgroundColor: ' #2774e0'}} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
           <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Witnessing or Experiencing Violence</h2>
           
@@ -327,6 +340,7 @@ export default function Component() {
       Yes
     </Button>
     <Button  type="button" 
+    
       style={{ fontFamily: "monospace" }} 
       className={`mr-2 text-white ${selectedChoice5=== 'No' ? 'bg-blue-600' : 'bg-blue-500'}`} 
       variant="default" 
@@ -351,6 +365,3 @@ Thank you for the response.
 </div>
 );
 }
-       
-    
-  
