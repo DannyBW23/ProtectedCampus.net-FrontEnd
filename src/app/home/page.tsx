@@ -50,7 +50,7 @@ export default function Page() {
     if (schools.includes(searchQuery)) {
       setSelectedSchool(searchQuery);
 
-      router.push(`/survey?selectedSchool=${encodeURIComponent(searchQuery)}`)
+      router.push(`/report?selectedSchool=${encodeURIComponent(searchQuery)}`)
     }
       else {
         console.error("No accepted school selected");
@@ -94,9 +94,9 @@ export default function Page() {
                     REPORT
                   </Button>
                 </Link>
-                <Link href="survey">
+                {/* <Link href="survey">
                   <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
-                </Link>
+                </Link> */}
                 <Link href="/directory">
                   <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
                 </Link>

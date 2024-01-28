@@ -17,11 +17,9 @@ export default function Component() {
     var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
     if (httpTokens) {
       window.location.replace('https://' + httpTokens[1]);
-    }
+    } 
   }, []); 
 
-  
-  const [color, setColor] = useState("pink");
   const router = useRouter();
   const [selectedChoice, setSelectedChoice] = useState<string>('');
   const [selectedChoice2, setSelectedChoice2] = useState<string>('');
