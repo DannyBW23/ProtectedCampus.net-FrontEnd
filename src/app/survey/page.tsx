@@ -240,7 +240,6 @@ export default function Component() {
       className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
       variant="default" 
       onClick={() =>{ handleChoiceChange4('1');
-      setColor("pink")
     }}
       
     >
