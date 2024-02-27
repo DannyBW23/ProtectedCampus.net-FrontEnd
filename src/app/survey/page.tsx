@@ -127,7 +127,7 @@ export default function Component() {
           Your feedback is important to us. Please take a moment to answer the following questions. Protect your campus.
         </p>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="2510" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="2510" >Loading…</iframe>
 </div>
 
 
