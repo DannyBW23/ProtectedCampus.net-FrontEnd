@@ -23,9 +23,9 @@ const selectedSchool = searchParams.get('selectedSchool');
           <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
              <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
             </Link>
-            {/* <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
+            <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
-            </Link>    */}
+            </Link>   
             <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
             </Link>

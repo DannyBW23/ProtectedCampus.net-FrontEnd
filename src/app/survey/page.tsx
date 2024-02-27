@@ -62,8 +62,8 @@ export default function Component() {
 
         if (response.ok) {
           console.log('Choice saved successfully'); 
-          setSubmitSuccess(true); // Set success state  
-          setTimeout(() => window.location.reload(), 2000); // Refresh page after
+          setSubmitSuccess(true); 
+          setTimeout(() => window.location.reload(), 2000);
         } else {
           console.error('Failed to save choice');
         }
@@ -126,8 +126,18 @@ export default function Component() {
         <p style={{fontFamily:"monospace" }}className="text-black text-center mt-2">
           Your feedback is important to us. Please take a moment to answer the following questions. Protect your campus.
         </p>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="2510" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+
       </header> 
+   
+      </div>
       
+  )}
+
+{/*       
  <main >
 
       <form className="space-y-6 text-white" onSubmit={handleSubmit}>
@@ -361,4 +371,4 @@ Thank you for the response.
 )}
 </div>
 );
-}
+} */}
