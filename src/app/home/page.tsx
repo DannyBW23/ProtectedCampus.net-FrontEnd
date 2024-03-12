@@ -88,8 +88,8 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center" >
           <div className="flex items-center space-x-4">
            
-                
-                 
+          <Button style={{backgroundColor:'#5A5A5A'}}className="text-black  hover:bg-gray-300">REPORT</Button> 
+          <Button style={{backgroundColor:'#5A5A5A'}} className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button> 
       <Link href="/IOS">
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
