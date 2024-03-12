@@ -53,7 +53,7 @@ export default function Component() {
          method: "POST",
          
     
-          headers: {'Content-Type':'application/json',},
+          headers: {'Content-Type': 'application/json', "Accept": "text/html" },
      
   
          body: JSON.stringify({ name: NameInput, schools: selectedSchool, emails: EmailInput, message: MessageInput }),
@@ -74,7 +74,14 @@ export default function Component() {
    }; 
 
 
+
+
+
+  
   return (
+
+    <html>
+      <meta name="viewport" content="width=device-width, initial-scale=.5" />
 <div className="bg-gray-200 min-h-screen">
 <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -159,6 +166,6 @@ export default function Component() {
 />
 </div>
         
-  
+  </html>
   
   )}
