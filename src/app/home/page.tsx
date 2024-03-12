@@ -167,16 +167,14 @@ export default function Page() {
      
       </main>
 
-      <p style={{ fontSize: "19px", fontFamily: "monospace" }} className=" text-center bold mt-4 text-white">
-        Search your school to access anonymous reporting & surveys
-        </p> 
-
-      <p style={{ fontSize: "18px", fontFamily: "monospace" }} className="text-center mt-20 text-white">
-        In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to report it.
-      </p>
+ 
      
 
+      <div className="mt-2">
 
+<Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap-2-2.jpg"} alt="Image from S3" width= "1600" height="1600"
+/>
+</div>
 
      
  </div>
