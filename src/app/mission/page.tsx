@@ -74,8 +74,8 @@ export default function Component() {
       </header>
 
 
- <div className="text-center mr-60 ml-60" >
- <Image src={"https://profilepic23.s3.amazonaws.com/3.jpg"} alt="Image from S3" width= "3000" height="3000"
+ <div className="text-center" >
+ <Image src={"https://profilepic23.s3.amazonaws.com/3.jpg"} alt="Image from S3" width= "4000" height="4000"
  /> 
       </div>
     <div className="mt-5">
