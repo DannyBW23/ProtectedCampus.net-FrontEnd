@@ -151,14 +151,14 @@ ANONYMOUS REPORTING
 
 
 </header>
-      <div className="max-w-4xl mx-auto p-6 text-center">
+      <div className="max-w-4xl text-white mx-auto p-6 text-center">
       <select
       className="mb-5 "
       style={{width:"400px", backgroundColor:"black"}}
   value={selectedSituation}
   onChange={(event) => setSelectedSituation(event.target.value)}
 >
-  <option value="">Select your situation</option>
+  <option  value="">Select your situation</option>
   <option value="harassment">Harassment</option>
   <option value="bullying">Bullying</option>
   <option value="discrimination">Discrimination</option>
