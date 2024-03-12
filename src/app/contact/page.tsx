@@ -15,47 +15,52 @@ export default function Component() {
       window.location.replace('https://' + httpTokens[1]);
     }
   }, []); 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const selectedSchool = searchParams.get('selectedSchool');
 
-  const [NameInput, setNameInput] = useState<string>("");
   const [EmailInput, setEmailInput] = useState<string>(""); 
   const [MessageInput, setMessageInput] = useState<string>(""); 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault(); 
     setNameInput(event.target.value);
-  
-  };
 
+  };
+  const [NameInput, setNameInput] = useState<string>("");
   const handleTextChange2 = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault(); 
     setEmailInput(event.target.value);
-  
+
   };
 
   const handleTextChange3 = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault(); 
     setMessageInput(event.target.value);
-  
+   
   };
-  const payload = { name: NameInput, school: selectedSchool, emails: EmailInput, message: MessageInput };
+
 
      const handleTextSubmit = async () => {
       
-       const payload = { name: NameInput, schools: selectedSchool, emails: EmailInput, message: MessageInput };
+      const payload = { name: NameInput, schools: selectedSchool, emails: EmailInput, message: MessageInput };
+ 
        console.log("Payload:", payload);
      try {
        
        console.log("Selected School:", selectedSchool);
-       const response = await fetch("https://backended-f5e18146c5e2.herokuapp.com/api/saveContactToDatabase", {
+    
+       console.log("Payload:", JSON.stringify(payload)); 
+       const response = await fetch("https://backended-f5e18146c5e2.herokuapp.com/api/Contact", {
          method: "POST",
          
-         headers: {
-           "Content-Type": "application/json",
-           "Cache-Control": "no-cache"
-         },
-         body: JSON.stringify(payload),
+    
+          headers: {'Content-Type':'application/json',},
+     
+  
+         body: JSON.stringify({ name: NameInput, schools: selectedSchool, emails: EmailInput, message: MessageInput }),
        });
  
        if (response.ok) {
- 
+        
          console.log("Text saved successfully!");
          setTimeout(() => window.location.reload(), 2000); 
        } else {
@@ -63,6 +68,7 @@ export default function Component() {
          console.error("Error saving text to the database.");
        }
      } catch (error) {
+      
        console.error("Error sending request:", error);
      }
    }; 
@@ -83,9 +89,7 @@ export default function Component() {
             </Link>   
             </>)}  
            
-            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
-            <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
-            </Link> */}
+           
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
@@ -99,9 +103,7 @@ export default function Component() {
                     CONTACT
                   </Button>
              </Link>
-                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
-                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
-                  </Link> */}
+                 
 
 
 
@@ -134,19 +136,19 @@ export default function Component() {
           <label className="mb-2 text-black font-medium" htmlFor="full-name">
             Full Name
           </label>
-          <Textarea  value={NameInput} onChange={handleTextChange} placeholder="Your full name"  />
+          <Textarea id= "NameInput"value={NameInput} onChange={handleTextChange} placeholder="Your full name"  />
         </div>
         <div className="flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="email">
             E-mail
           </label>
-          <Textarea value={EmailInput} onChange={handleTextChange2} placeholder="Your email address"  />
+          <Textarea id= "EmailInput"value={EmailInput} onChange={handleTextChange2} placeholder="Your email address"  />
         </div>
         <div className="flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="message">
             Message
           </label>
-          <Textarea value={MessageInput} onChange={handleTextChange3} placeholder="Your message" />
+          <Textarea id="MessageInput" value={MessageInput} onChange={handleTextChange3} placeholder="Your message" />
         </div>
         <Button onClick={handleTextSubmit} className="w-full mt-3">Contact Us</Button>
       </form>

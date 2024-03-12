@@ -21,6 +21,7 @@
     "lucide-react": "^0.308.0",
     "next": "14.0.4",
     "next-ssl-redirect-middleware": "^0.1.5",
+    "node-fetch": "^3.3.2",
     "react": "^18",
     "react-dom": "^18",
     "server-only": "^0.0.1",
