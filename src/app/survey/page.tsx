@@ -88,7 +88,7 @@ export default function Component() {
   
   return ( 
     <html>
-    <meta name="viewport" content="width=device-width, initial-scale=.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=.4" />
   <>
     {selectedSchool === 'Stevenson University' ? (
 

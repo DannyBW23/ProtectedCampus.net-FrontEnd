@@ -15,7 +15,7 @@ export default function Component() {
   const selectedSchool = searchParams.get('selectedSchool');
   return (
     <html>
-    <meta name="viewport" content="width=device-width, initial-scale=.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=.4" />
 <div className="bg-gray-200 min-h-screen">
 <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
