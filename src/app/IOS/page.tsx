@@ -30,6 +30,10 @@ const selectedSchool = searchParams.get('selectedSchool');
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
             </Link>   
             </>)}
+            {selectedSchool === null && (
+              <>
+              <Button style={{backgroundColor:'#5A5A5A'}}className="text-black  hover:bg-gray-300">REPORT</Button> 
+              <Button style={{backgroundColor:'#5A5A5A'}} className="text-black bg-transparent hover:bg-gray-300">SURVEY</Button> </>)} 
             {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
             </Link> */}
