@@ -195,7 +195,7 @@ ANONYMOUS REPORTING
           </div>
         </div>
         <div className="flex flex-col space-y-4">
-          <Textarea value={textInput} onChange={handleTextChange} className="mb-4 h-32 border-gray-300" placeholder="Enter your text here." />
+          <Textarea value={textInput} onChange={handleTextChange} className="mb-4 h-32 text-white border-gray-300" placeholder="Enter your text here." />
           <Button onClick={handleTextSubmit} className="bg-blue-600 hover:bg-blue-700 text-white">Upload Text</Button>
             
         </div>
