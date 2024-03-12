@@ -141,19 +141,19 @@ export default function Component() {
       <h1 className="text-3xl text-black font-semibold text-center mb-6 mt-3">Contact Us</h1>
       <form className="border border-gray-200 rounded-md p-4">
         <div className="flex flex-col">
-          <label className="mb-2 text-black font-medium" htmlFor="full-name">
+          <label className="mb-2 text-white font-medium" htmlFor="full-name">
             Full Name
           </label>
           <Textarea id= "NameInput"value={NameInput} onChange={handleTextChange} placeholder="Your full name"  />
         </div>
         <div className="flex flex-col">
-          <label className="mb-2 mt-2 text-black font-medium" htmlFor="email">
+          <label className="mb-2 mt-2 text-white font-medium" htmlFor="email">
             E-mail
           </label>
           <Textarea id= "EmailInput"value={EmailInput} onChange={handleTextChange2} placeholder="Your email address"  />
         </div>
         <div className="flex flex-col">
-          <label className="mb-2 mt-2 text-black font-medium" htmlFor="message">
+          <label className="mb-2 mt-2 text-white font-medium" htmlFor="message">
             Message
           </label>
           <Textarea id="MessageInput" value={MessageInput} onChange={handleTextChange3} placeholder="Your message" />
