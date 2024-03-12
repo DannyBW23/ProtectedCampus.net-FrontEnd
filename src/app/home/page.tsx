@@ -66,13 +66,26 @@ export default function Page() {
   };
 
   
+
  
   return (
     <html>
     <meta name="viewport" content="width=device-width, initial-scale=.4" />
     <div style={{ backgroundColor: '#2774e0' }} className="min-h-screen">
+
+
+
+
+  
+
+
+
+
+
+
+
       <nav className="bg-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center" >
           <div className="flex items-center space-x-4">
            
                 
@@ -154,11 +167,17 @@ export default function Page() {
      
       </main>
 
+      <p style={{ fontSize: "19px", fontFamily: "monospace" }} className=" text-center bold mt-4 text-white">
+        Search your school to access anonymous reporting & surveys
+        </p> 
 
-
-      <p style={{ fontSize: "18px", fontFamily: "monospace" }} className="text-center mt-8 text-white">
+      <p style={{ fontSize: "18px", fontFamily: "monospace" }} className="text-center mt-20 text-white">
         In 4 out of 5 school shootings, at least one other person had knowledge of the attacker’s plan but failed to report it.
       </p>
+     
+
+
+
      
  </div>
  </html>
