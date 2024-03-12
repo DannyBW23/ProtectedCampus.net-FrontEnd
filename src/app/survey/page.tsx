@@ -1,6 +1,7 @@
 "use client"
 
 
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
@@ -21,6 +22,12 @@ export default function Component() {
   }, []); 
 
   const router = useRouter();
+  const [selectedQuiz, setSelectedQuiz] = useState('');
+
+  // Function to change the quiz based on selection
+  const handleQuizChange =(event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedQuiz(event.target.value);
+  };
   const [selectedChoice, setSelectedChoice] = useState<string>('');
   const [selectedChoice2, setSelectedChoice2] = useState<string>('');
   const [selectedChoice3, setSelectedChoice3] = useState<string>('');
@@ -79,27 +86,52 @@ export default function Component() {
   
 
   
-  return (
-    <div className="bg-gray-100 min-h-screen">
+  return ( 
+  <>
+    {selectedSchool === 'Stevenson University' ? (
+
+
+
+
+
+
+
+
+
+
+
+    <div className="bg-gray-200 min-h-screen">
     <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-4">
   
+          {selectedSchool && ( 
+              <>
           <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
              <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
             </Link>
             <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
             </Link>   
-            <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
-            <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
-            </Link>
+            </>)}  
+           
             <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
             </Link>
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
+    
+             
+            <Link href={selectedSchool ? `/mission?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/mission"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    MISSION
+                  </Button>
+             </Link>
+
+                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
+                  </Link> */}
           </div>
           <div className="flex items-center space-x-4">
          
@@ -126,253 +158,577 @@ export default function Component() {
         <p style={{fontFamily:"monospace" }}className="text-black text-center mt-2">
           Your feedback is important to us. Please take a moment to answer the following questions. Protect your campus.
         </p>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="3402" >Loading…</iframe>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHu7dpQlTjyl1j_-sWv2jv1Lx12f_TOP0rYMVPMoepAAckAQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8MgBGnk3ezfnSheGCIjTnOYGifjkLGi1sdmC9ayLd4RA2Rw/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+        <div className="max-w-4xl mx-auto p-6 flex flex-col items-center">
+      <select  onChange={handleQuizChange} style={{width:"400px", backgroundColor:"black"}}className="select-css text-white" >
+        
+        <option value="0">Select a Quiz</option>
+        <option value="1">Anonymous Security & Safety Personnel Survey</option>
+        <option value="2">Anonymous Public Survey</option>
+        <option value="3">Anonymous Students/Faculty/Staff Survey</option>
+      </select>
+      {selectedQuiz === '' && (
+        <div className="mt-5">
+     <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(2).jpg"} alt="Image from S3" width= "640"height="900"
+     /> 
+     </div>
+      )}
+       {selectedQuiz === '0' && (
+          <div className="mt-5">
+          <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(2).jpg"} alt="Image from S3" width= "640"height="900"
+          /> 
+          </div>
+      )}
+      {selectedQuiz === '1' && (
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+      )}
+      {selectedQuiz === '2' && (
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHu7dpQlTjyl1j_-sWv2jv1Lx12f_TOP0rYMVPMoepAAckAQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+      )}
+      {selectedQuiz === '3' && (
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8MgBGnk3ezfnSheGCIjTnOYGifjkLGi1sdmC9ayLd4RA2Rw/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+      )}
+    </div>
 
-</div>
+
 
 
       </header> 
    
       </div>
-      
-  )}
-
-{/*       
- <main >
-
-      <form className="space-y-6 text-white" onSubmit={handleSubmit}>
-        <div style={{fontFamily:"monospace" , backgroundColor: ' #2774e0'}} className="w-full bg-white shadow-md rounded-lg  p-4">
-          <fieldset className="space-y-2">
-            <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
-              How would you rate the condition and maintenance of safety equipment in your school?
-            </legend>
-            <div className="space-y-1">
-              <label className="flex items-center">
-                <input className="mr-2" name="equipment" type="radio" value="poor" onChange={handleChoiceChange}  checked={selectedChoice === 'poor'}/>
-                <span style={{fontFamily:"monospace" }}>Poor</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="equipment" type="radio" value="fair" onChange={handleChoiceChange}  checked={selectedChoice ==="fair"}/>
-                <span style={{fontFamily:"monospace" }}>Fair</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="equipment" type="radio" value="good" onChange={handleChoiceChange}  checked={selectedChoice ==="good"} />
-                <span style={{fontFamily:"monospace" }}>Good</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="equipment" type="radio" value="excellent" onChange={handleChoiceChange}  checked={selectedChoice ==="excellent"} />
-                <span style={{fontFamily:"monospace" }}> Excellent</span>
-              </label>
-            </div>
-          </fieldset>
-        </div>
-
-
-
-
-
-
-        <div style={{ backgroundColor: ' #2774e0'}}className="card bg-white shadow-md rounded-lg p-4">
-          <fieldset className="space-y-2">
-            <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
-              Do you feel that your school provides adequate training and education on emergency preparedness?
-            </legend>
-            <div className="space-y-1">
-              <label className="flex items-center">
-                <input className="mr-2" name="training" type="radio" value="not-at-all" onChange={handleChoiceChange2}  checked={selectedChoice2 === 'not-at-all'}/>
-                <span style={{fontFamily:"monospace" }}>Not at all</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="training" type="radio" value="somewhat" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="somewhat"} />
-                <span style={{fontFamily:"monospace" }}>Somewhat</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="training" type="radio" value="moderately"onChange={handleChoiceChange2}  checked={selectedChoice2 ==="moderately"} />
-                <span style={{fontFamily:"monospace" }}>Moderately</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="training" type="radio" value="very-much-so" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="very-much-so"} />
-                <span style={{fontFamily:"monospace" }}>Very much so</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="training" type="radio" value="absolutely" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="absolutely"}/>
-                <span style={{fontFamily:"monospace" }}>Absolutely</span>
-              </label>
-            </div>
-          </fieldset>
-        </div>
-        <div style={{ backgroundColor: ' #2774e0'}}className="card bg-white shadow-md rounded-lg p-4">
-          <fieldset className="space-y-2">
-            <legend className="font-medium text-lg" style={{fontFamily:"monospace" }}>
-              How well do you believe your school responds to safety concerns and incidents?
-            </legend>
-            <div className="space-y-1">
-              <label className="flex items-center" >
-                <input className="mr-2" name="response" type="radio" value="poorly" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'poorly'} />
-                <span style={{fontFamily:"monospace" }}>Poorly</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="response" type="radio" value="fairly" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'fairly'} />
-                <span style={{fontFamily:"monospace" }}>Fairly</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="response" type="radio" value="average" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'average'} />
-                <span style={{fontFamily:"monospace" }}>Average</span>
-              </label>
-              <label className="flex items-center">
-                <input className="mr-2" name="response" type="radio" value="well" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'well'}  />
-                <span style={{fontFamily:"monospace" }}>Well</span>
-              </label >
-              <label className="flex items-center">
-                <input className="mr-2" name="response" type="radio" value="excellently" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'excellently'} />
-                <span style={{fontFamily:"monospace" }}>Excellently</span>
-              </label>
-            </div>
-          </fieldset>
-        </div>
-     
-      </form>
-    </main>
-      
-      
-       
-       
-
-      <main className="mt-5 flex flex-col gap-8">
-        <div style={{ backgroundColor:' #2774e0' }} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
-          <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Safety Perception</h2>
-          <p style={{fontFamily:"monospace" }}className="text-white">
-            On a scale of 1 to 10, how safe do you feel at school, with 1 being the least and 10 being the most safe?
-          </p>
-          <div className="flex-row  items-center">
-          <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
-      variant="default" 
-      onClick={() =>{ handleChoiceChange4('1');
-    }}
-      
-    >
-      1
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('2')}
-    >
-      2
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('3')}
-    >
-      3
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('4')}
-    >
-      4
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('5')}
-    >
-      5
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('6')}
-    >
-      6
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('7')}
-    >
-      7
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('8')}
-    >
-      8
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('9')}
-    >
-      9
-    </Button>
-    <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange4('10')}
-    >
-      10
-    </Button>
+   ) : (
+    <main>
+         <div className="bg-gray-100 min-h-screen">
+    <main >
    
-            </div>
-          
-        </div>
-        
-        <div style={{ backgroundColor: ' #2774e0'}} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
-          <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Witnessing or Experiencing Violence</h2>
-          
-          <p style={{fontFamily:"monospace" }} className="text-white">
-            Have you ever witnessed or experienced bullying, violence, or any other form of threat at school?
-          </p>
-          <Button  type="button" 
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice5 === 'Yes' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange5('Yes')}
-    >
-      Yes
-    </Button>
-    <Button  type="button" 
+    <nav className="bg-white py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+  
+          {selectedSchool && ( 
+              <>
+          <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
+             <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
+            </Link>
+            <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
+            </Link>   
+            </>)}  
+           
+            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
+            </Link> */}
+      <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
+            </Link>
     
-      style={{ fontFamily: "monospace" }} 
-      className={`mr-2 text-white ${selectedChoice5=== 'No' ? 'bg-blue-600' : 'bg-blue-500'}`} 
-      variant="default" 
-      onClick={() => handleChoiceChange5('No')}
-    >
-      No
-    </Button>
-              </div>
+             
+            <Link href={selectedSchool ? `/mission?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/mission"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    MISSION
+                  </Button>
+             </Link>
+
+                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
+                  </Link> */}
+                   <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    CONTACT
+                  </Button>
+             </Link>
+          </div>
+          <div className="flex items-center space-x-4">
+         
+         <Link href="/home">
+         <Button className="text-black bg-transparent hover:bg-gray-100">HOME</Button>
+         </Link>
+       </div>
+        </div>
+      </nav>
+      
+      <header style={{ backgroundColor: ' #2774e0' }}  className="shadow mb-6">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
+
+
+<Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
+/>
+</div> 
+          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTEDCAMPUS.COM</h1>
+        </div>
+      </header>
+      
+<form className="space-y-6 text-white" onSubmit={handleSubmit}>
+  <div style={{fontFamily:"monospace" , backgroundColor: ' #2774e0'}} className="w-full bg-white shadow-md rounded-lg  p-4">
+    <fieldset className="space-y-2">
+      <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
+        How would you rate the condition and maintenance of safety equipment in your school?
+      </legend>
+      <div className="space-y-1">
+        <label className="flex items-center">
+          <input className="mr-2" name="equipment" type="radio" value="poor" onChange={handleChoiceChange}  checked={selectedChoice === 'poor'}/>
+          <span style={{fontFamily:"monospace" }}>Poor</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="equipment" type="radio" value="fair" onChange={handleChoiceChange}  checked={selectedChoice ==="fair"}/>
+          <span style={{fontFamily:"monospace" }}>Fair</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="equipment" type="radio" value="good" onChange={handleChoiceChange}  checked={selectedChoice ==="good"} />
+          <span style={{fontFamily:"monospace" }}>Good</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="equipment" type="radio" value="excellent" onChange={handleChoiceChange}  checked={selectedChoice ==="excellent"} />
+          <span style={{fontFamily:"monospace" }}> Excellent</span>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+
+
+
+
+{/* 
+
+  <div style={{ backgroundColor: ' #2774e0'}}className="card bg-white shadow-md rounded-lg p-4">
+    <fieldset className="space-y-2">
+      <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
+        Do you feel that your school provides adequate training and education on emergency preparedness?
+      </legend>
+      <div className="space-y-1">
+        <label className="flex items-center">
+          <input className="mr-2" name="training" type="radio" value="not-at-all" onChange={handleChoiceChange2}  checked={selectedChoice2 === 'not-at-all'}/>
+          <span style={{fontFamily:"monospace" }}>Not at all</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="training" type="radio" value="somewhat" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="somewhat"} />
+          <span style={{fontFamily:"monospace" }}>Somewhat</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="training" type="radio" value="moderately"onChange={handleChoiceChange2}  checked={selectedChoice2 ==="moderately"} />
+          <span style={{fontFamily:"monospace" }}>Moderately</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="training" type="radio" value="very-much-so" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="very-much-so"} />
+          <span style={{fontFamily:"monospace" }}>Very much so</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="training" type="radio" value="absolutely" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="absolutely"}/>
+          <span style={{fontFamily:"monospace" }}>Absolutely</span>
+        </label>
+      </div>
+    </fieldset>
+  </div> */}
+  </form>
 </main>
+  {/* <div style={{ backgroundColor: ' #2774e0'}}className="card bg-white shadow-md rounded-lg p-4">
+    <fieldset className="space-y-2">
+      <legend className="font-medium text-lg" style={{fontFamily:"monospace" }}>
+        How well do you believe your school responds to safety concerns and incidents?
+      </legend>
+      <div className="space-y-1">
+        <label className="flex items-center" >
+          <input className="mr-2" name="response" type="radio" value="poorly" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'poorly'} />
+          <span style={{fontFamily:"monospace" }}>Poorly</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="response" type="radio" value="fairly" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'fairly'} />
+          <span style={{fontFamily:"monospace" }}>Fairly</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="response" type="radio" value="average" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'average'} />
+          <span style={{fontFamily:"monospace" }}>Average</span>
+        </label>
+        <label className="flex items-center">
+          <input className="mr-2" name="response" type="radio" value="well" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'well'}  />
+          <span style={{fontFamily:"monospace" }}>Well</span>
+        </label >
+        <label className="flex items-center">
+          <input className="mr-2" name="response" type="radio" value="excellently" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'excellently'} />
+          <span style={{fontFamily:"monospace" }}>Excellently</span>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+
+</form>
+</main>
+
+
+
+ 
+
+<main className="mt-5 flex flex-col gap-8">
+  <div style={{ backgroundColor:' #2774e0' }} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
+    <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Safety Perception</h2>
+    <p style={{fontFamily:"monospace" }}className="text-white">
+      On a scale of 1 to 10, how safe do you feel at school, with 1 being the least and 10 being the most safe?
+    </p>
+    <div className="flex-row  items-center">
+    <Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
+variant="default" 
+onClick={() =>{ handleChoiceChange4('1');
+}}
+
+>
+1
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('2')}
+>
+2
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('3')}
+>
+3
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('4')}
+>
+4
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('5')}
+>
+5
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('6')}
+>
+6
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('7')}
+>
+7
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('8')}
+>
+8
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('9')}
+>
+9
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('10')}
+>
+10
+</Button>
+
+      </div>
+    
+  </div>
+  
+  <div style={{ backgroundColor: ' #2774e0'}} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
+    <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Witnessing or Experiencing Violence</h2>
+    
+    <p style={{fontFamily:"monospace" }} className="text-white">
+      Have you ever witnessed or experienced bullying, violence, or any other form of threat at school?
+    </p>
+    <Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice5 === 'Yes' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange5('Yes')}
+>
+Yes
+</Button>
+<Button  type="button" 
+
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice5=== 'No' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange5('No')}
+>
+No
+</Button>
+        </div>
+</main> */}
 <form className="space-y-6 text-white" onSubmit={handleSubmit}>
 <div style={{ display: 'grid', placeItems: 'center' }}>
-        <button style={{ fontFamily: "monospace", backgroundColor: '#2774e0', marginTop: "5px", width: "100px" }}className="center px-4 py-2 text-white rounded-md" type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
-    {submitSuccess &&(
-<div className="text-center p-4 mb-4 text-green-700 bg-green-200 rounded-lg">
-Thank you for the response.
+  <button style={{ fontFamily: "monospace", backgroundColor: '#2774e0', marginTop: "5px", width: "100px" }}className="center px-4 py-2 text-white rounded-md" type="submit">
+    Submit
+  </button>
 </div>
-)}
+</form> 
 </div>
+    </main>
+  )}
+  {submitSuccess && (
+    <div className="text-center p-4 mb-4 text-green-700 bg-green-200 rounded-lg">
+      Thank you for the response.
+    </div>
+  )}
+</>
 );
-} */}
+
+}
+      
+//  <main >
+
+//       <form className="space-y-6 text-white" onSubmit={handleSubmit}>
+//         <div style={{fontFamily:"monospace" , backgroundColor: ' #2774e0'}} className="w-full bg-white shadow-md rounded-lg  p-4">
+//           <fieldset className="space-y-2">
+//             <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
+//               How would you rate the condition and maintenance of safety equipment in your school?
+//             </legend>
+//             <div className="space-y-1">
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="equipment" type="radio" value="poor" onChange={handleChoiceChange}  checked={selectedChoice === 'poor'}/>
+//                 <span style={{fontFamily:"monospace" }}>Poor</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="equipment" type="radio" value="fair" onChange={handleChoiceChange}  checked={selectedChoice ==="fair"}/>
+//                 <span style={{fontFamily:"monospace" }}>Fair</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="equipment" type="radio" value="good" onChange={handleChoiceChange}  checked={selectedChoice ==="good"} />
+//                 <span style={{fontFamily:"monospace" }}>Good</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="equipment" type="radio" value="excellent" onChange={handleChoiceChange}  checked={selectedChoice ==="excellent"} />
+//                 <span style={{fontFamily:"monospace" }}> Excellent</span>
+//               </label>
+//             </div>
+//           </fieldset>
+//         </div>
+
+
+
+
+
+
+//         <div style={{ backgroundColor: ' #2774e0'}}className="card bg-white shadow-md rounded-lg p-4">
+//           <fieldset className="space-y-2">
+//             <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
+//               Do you feel that your school provides adequate training and education on emergency preparedness?
+//             </legend>
+//             <div className="space-y-1">
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="training" type="radio" value="not-at-all" onChange={handleChoiceChange2}  checked={selectedChoice2 === 'not-at-all'}/>
+//                 <span style={{fontFamily:"monospace" }}>Not at all</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="training" type="radio" value="somewhat" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="somewhat"} />
+//                 <span style={{fontFamily:"monospace" }}>Somewhat</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="training" type="radio" value="moderately"onChange={handleChoiceChange2}  checked={selectedChoice2 ==="moderately"} />
+//                 <span style={{fontFamily:"monospace" }}>Moderately</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="training" type="radio" value="very-much-so" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="very-much-so"} />
+//                 <span style={{fontFamily:"monospace" }}>Very much so</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="training" type="radio" value="absolutely" onChange={handleChoiceChange2}  checked={selectedChoice2 ==="absolutely"}/>
+//                 <span style={{fontFamily:"monospace" }}>Absolutely</span>
+//               </label>
+//             </div>
+//           </fieldset>
+//         </div>
+//         <div style={{ backgroundColor: ' #2774e0'}}className="card bg-white shadow-md rounded-lg p-4">
+//           <fieldset className="space-y-2">
+//             <legend className="font-medium text-lg" style={{fontFamily:"monospace" }}>
+//               How well do you believe your school responds to safety concerns and incidents?
+//             </legend>
+//             <div className="space-y-1">
+//               <label className="flex items-center" >
+//                 <input className="mr-2" name="response" type="radio" value="poorly" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'poorly'} />
+//                 <span style={{fontFamily:"monospace" }}>Poorly</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="response" type="radio" value="fairly" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'fairly'} />
+//                 <span style={{fontFamily:"monospace" }}>Fairly</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="response" type="radio" value="average" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'average'} />
+//                 <span style={{fontFamily:"monospace" }}>Average</span>
+//               </label>
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="response" type="radio" value="well" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'well'}  />
+//                 <span style={{fontFamily:"monospace" }}>Well</span>
+//               </label >
+//               <label className="flex items-center">
+//                 <input className="mr-2" name="response" type="radio" value="excellently" onChange={handleChoiceChange3}  checked={selectedChoice3 === 'excellently'} />
+//                 <span style={{fontFamily:"monospace" }}>Excellently</span>
+//               </label>
+//             </div>
+//           </fieldset>
+//         </div>
+     
+//       </form>
+//     </main>
+      
+      
+       
+       
+
+//       <main className="mt-5 flex flex-col gap-8">
+//         <div style={{ backgroundColor:' #2774e0' }} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
+//           <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Safety Perception</h2>
+//           <p style={{fontFamily:"monospace" }}className="text-white">
+//             On a scale of 1 to 10, how safe do you feel at school, with 1 being the least and 10 being the most safe?
+//           </p>
+//           <div className="flex-row  items-center">
+//           <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
+//       variant="default" 
+//       onClick={() =>{ handleChoiceChange4('1');
+//     }}
+      
+//     >
+//       1
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('2')}
+//     >
+//       2
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('3')}
+//     >
+//       3
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('4')}
+//     >
+//       4
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('5')}
+//     >
+//       5
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('6')}
+//     >
+//       6
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('7')}
+//     >
+//       7
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('8')}
+//     >
+//       8
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('9')}
+//     >
+//       9
+//     </Button>
+//     <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange4('10')}
+//     >
+//       10
+//     </Button>
+   
+//             </div>
+          
+//         </div>
+        
+//         <div style={{ backgroundColor: ' #2774e0'}} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
+//           <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Witnessing or Experiencing Violence</h2>
+          
+//           <p style={{fontFamily:"monospace" }} className="text-white">
+//             Have you ever witnessed or experienced bullying, violence, or any other form of threat at school?
+//           </p>
+//           <Button  type="button" 
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice5 === 'Yes' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange5('Yes')}
+//     >
+//       Yes
+//     </Button>
+//     <Button  type="button" 
+    
+//       style={{ fontFamily: "monospace" }} 
+//       className={`mr-2 text-white ${selectedChoice5=== 'No' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+//       variant="default" 
+//       onClick={() => handleChoiceChange5('No')}
+//     >
+//       No
+//     </Button>
+//               </div>
+// </main>
+// <form className="space-y-6 text-white" onSubmit={handleSubmit}>
+// <div style={{ display: 'grid', placeItems: 'center' }}>
+//         <button style={{ fontFamily: "monospace", backgroundColor: '#2774e0', marginTop: "5px", width: "100px" }}className="center px-4 py-2 text-white rounded-md" type="submit">
+//           Submit
+//         </button>
+//       </div>
+//     </form>
+//     {submitSuccess &&(
+// <div className="text-center p-4 mb-4 text-green-700 bg-green-200 rounded-lg">
+// Thank you for the response.
+// </div>
+// )}
+// </div>
+// );
+// } 

@@ -5,12 +5,12 @@ import Image from 'next/image';
 import React, {useEffect} from 'react';
 import { useSearchParams } from "next/navigation";
 export default function Component() {
-  // useEffect(() => {
-  //   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-  //   if (httpTokens) {
-  //     window.location.replace('https://' + httpTokens[1]);
-  //   }
-  // }, []); 
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
   const searchParams = useSearchParams()
   const selectedSchool = searchParams.get('selectedSchool');
   return (
@@ -28,9 +28,9 @@ export default function Component() {
             </Link>   
             </>)}  
            
-            <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
+            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
-            </Link>
+            </Link> */}
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
@@ -39,11 +39,14 @@ export default function Component() {
                     MISSION
                   </Button>
              </Link>
-             
-                  <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
+                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
                   <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
-                  </Link>
-
+                  </Link> */}
+ <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    CONTACT
+                  </Button>
+             </Link>
 
 
 
@@ -67,32 +70,23 @@ export default function Component() {
           <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTEDCAMPUS.COM</h1>
         </div>
       </header>
-      <main className="py-10">
-        <div className="max-w-4xl mx-auto px-4">
-          <div style={{ backgroundColor: ' #2774e0' }} className="p-6 shadow rounded-lg text-center">
-            <h2 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white mb-4">SAFETY CERTIFICATIONS     <div className="flex justify-center items-center space-y-4 flex-col mt-6">
-     
-          
-            </div></h2>
-            <div className="flex justify-center items-center space-x-4">
-            <Link href={selectedSchool ? `/medical?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/medical"}>
-              <Button style={{fontFamily:"monospace"}}className="bg-white text- white hover:bg-gray-400 text-black rounded-md">
-                MEDICAL TRAINING
-              </Button>
-              </Link>
-              <span className="text-white">OR</span>
-              <Link href={selectedSchool ? `/violence?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/violence"}>
-              <Button  style={{fontFamily:"monospace"}}className="bg-white text- white hover:bg-gray-400 text-black  rounded-md">
-                VIOLENCE TRAINING
-              </Button>
-              </Link>
-            </div>
-         
-          </div>
-        </div>
-      </main>
-    </div>
-  )
-}
 
 
+ <div className="text-center mr-60 ml-60" >
+ <Image src={"https://profilepic23.s3.amazonaws.com/3.jpg"} alt="Image from S3" width= "1600" height="1600"
+ /> 
+      </div>
+    <div className="mt-5">
+
+      <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(1).jpg"} alt="Image from S3" width= "1600" height="1600"
+ />
+ </div>
+ 
+
+      </div>
+
+
+
+
+
+  )}

@@ -25,7 +25,7 @@ export default function Component() {
 const bucketName = "profilepic23";
 const searchParams = useSearchParams()
 const selectedSchool = searchParams.get('selectedSchool');
-
+const [selectedSituation, setSelectedSituation] = useState("");
 
    const [selectedFile, setSelectedFile] = useState<File | null>(null); 
    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +65,7 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
  };
  const [textInput, setTextInput] = useState<string>(""); 
     const handleTextSubmit = async () => {
-      const payload = { textInput: textInput, school: selectedSchool };
+      const payload = { textInput: textInput, school: selectedSchool, situation: selectedSituation };
       console.log("Payload:", payload);
     try {
       
@@ -75,7 +75,7 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ textInput:textInput, schools:selectedSchool }),
+        body: JSON.stringify({ textInput:textInput, schools:selectedSchool, situation:selectedSituation }),
       });
 
       if (response.ok) {
@@ -92,26 +92,42 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
   }; 
   return (
     
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-200 min-h-screen">
       <nav className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-4">
+          {selectedSchool && ( 
+              <>
           <Link href={selectedSchool ? `/report?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/report"}>
              <Button className="text-black bg-transparent hover-bg-gray-100">REPORT</Button>
             </Link>
             <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
-            
             </Link>   
-            <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
-            <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
-            </Link>
-            <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
+            </>)}  
+           
+            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
-            </Link>
+            </Link> */}
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
+    
+             
+            <Link href={selectedSchool ? `/mission?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/mission"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    MISSION
+                  </Button>
+             </Link>
+             <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    CONTACT
+                  </Button>
+             </Link>
+
+                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
+                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
+                  </Link> */}
           </div>
           <div className="flex items-center space-x-4">
          
@@ -134,19 +150,19 @@ ANONYMOUS REPORTING
 
 
 </header>
-      <div className="max-w-4xl mx-auto p-6">
-        <Select >
-          <SelectTrigger id="situation">
-            <SelectValue placeholder="Describe your situation" />
-          </SelectTrigger>
-
-          <SelectContent position="popper">
-            <SelectItem value="harassment">Harassment</SelectItem>
-            <SelectItem value="bullying">Bullying</SelectItem>
-            <SelectItem value="discrimination">Discrimination</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
+      <div className="max-w-4xl mx-auto p-6 text-center">
+      <select
+      className="mb-5 "
+      style={{width:"400px", backgroundColor:"black"}}
+  value={selectedSituation}
+  onChange={(event) => setSelectedSituation(event.target.value)}
+>
+  <option value="">Select your situation</option>
+  <option value="harassment">Harassment</option>
+  <option value="bullying">Bullying</option>
+  <option value="discrimination">Discrimination</option>
+  <option value="other">Other</option>
+</select>
         <div className="flex flex-col space-y-4 mb-6 p-6 bg-white border border-gray-300 rounded-md">
           <div className="flex justify-center items-center w-full h-32 bg-gray-100 border-2 border-dashed border-gray-300 rounded-md cursor-pointer mb-4">
           <span className="text-gray-500">Click &quot;Choose File&quot; to select a file and then press &quot;Upload&quot; to report it</span>
