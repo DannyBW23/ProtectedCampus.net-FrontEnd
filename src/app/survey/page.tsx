@@ -115,9 +115,9 @@ export default function Component() {
             </Link>   
             </>)}  
            
-            <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
+            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
-            </Link>
+            </Link> */}
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
@@ -128,7 +128,11 @@ export default function Component() {
                     MISSION
                   </Button>
              </Link>
-
+             <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    CONTACT
+                  </Button>
+             </Link>
                   {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
                   <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
                   </Link> */}
