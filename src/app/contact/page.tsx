@@ -141,7 +141,7 @@ export default function Component() {
       </header>
       
       <div key="1" className="max-w-md mx-auto">
-      <h1 className="text-3xl text-black font-semibold text-center mb-6 mt-3">Contact Us</h1>
+      <h1 style={{color:"black"}}className="text-3xl text-blue font-bold text-center mb-6 mt-3">CONTACT US </h1>
       <form className="border border-gray-200 rounded-md p-4">
         <div className="text-white flex flex-col">
           <label className="mb-2 text-black font-medium" htmlFor="full-name">
@@ -161,10 +161,16 @@ export default function Component() {
           </label>
           <Textarea style={{backgroundColor:"black"}}  id="MessageInput" value={MessageInput} className="text-white" onChange={handleTextChange3} placeholder="Your message" />
         </div>
-        <Button onClick={handleTextSubmit} className="w-full mt-3">Contact Us</Button>
-      </form>
-    </div>
+        <Button style={{backgroundColor:"#2774e0"}}onClick={handleTextSubmit} className="text-white w-full mt-3">
+         <span className="text-white">
+         Contact Us    
+         </span>
       
+          
+          </Button>
+      </form>
+    
+      </div>
       
 <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(3).jpg"} alt="Image from S3" width= "1600" height="1600"
 />

@@ -76,12 +76,7 @@ const selectedSchool = searchParams.get('selectedSchool');
           <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <a href="https://share.proto.io/KJGY04/" target="_blank" rel="noopener noreferrer">
-    <Button className=" text-black bg-gray-500 hover:bg-gray-500">PROTO LINK</Button>
-</a>
-
-</div>
+      
 <div style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
 
 
