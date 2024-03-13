@@ -155,7 +155,7 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
 />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTEDCAMPUS.COM</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
@@ -261,7 +261,7 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
 />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTEDCAMPUS.COM</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
