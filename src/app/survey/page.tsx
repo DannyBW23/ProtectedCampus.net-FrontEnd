@@ -302,7 +302,7 @@ export default function Component() {
     <div className="flex-row  items-center">
     <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() =>{ handleChoiceChange4('1');
 }}
@@ -312,7 +312,7 @@ onClick={() =>{ handleChoiceChange4('1');
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('2')}
 >
@@ -320,7 +320,7 @@ onClick={() => handleChoiceChange4('2')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('3')}
 >
@@ -328,7 +328,7 @@ onClick={() => handleChoiceChange4('3')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('4')}
 >
@@ -336,7 +336,7 @@ onClick={() => handleChoiceChange4('4')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('5')}
 >
@@ -344,7 +344,7 @@ onClick={() => handleChoiceChange4('5')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('6')}
 >
@@ -352,7 +352,7 @@ onClick={() => handleChoiceChange4('6')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('7')}
 >
@@ -360,7 +360,7 @@ onClick={() => handleChoiceChange4('7')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('8')}
 >
@@ -368,7 +368,7 @@ onClick={() => handleChoiceChange4('8')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('9')}
 >
@@ -376,7 +376,7 @@ onClick={() => handleChoiceChange4('9')}
 </Button>
 <Button  type="button" 
 style={{ fontFamily: "monospace" }} 
-className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('10')}
 >
