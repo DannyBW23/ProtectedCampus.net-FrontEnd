@@ -14,12 +14,12 @@ const schools: string[] = ["A.T. Still University", "Abilene Christian Universit
 export default function Page() {
 
 
-  // useEffect(() => {
-  //   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-  //   if (httpTokens) {
-  //     window.location.replace('https://' + httpTokens[1]);
-  //   }
-  // }, []); 
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
 
 
   const [selectedSchool, setSelectedSchool] = useState<string | null>(null); 
