@@ -143,19 +143,19 @@ export default function Component() {
       <div key="1" className="max-w-md mx-auto">
       <h1 className="text-3xl text-black font-semibold text-center mb-6 mt-3">Contact Us</h1>
       <form className="border border-gray-200 rounded-md p-4">
-        <div className="text-white flex flex-col">
+        <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
           <label className="mb-2 text-black font-medium" htmlFor="full-name">
             Full Name
           </label>
           <Textarea id= "NameInput"value={NameInput} className="text-white" onChange={handleTextChange} placeholder="Your full name"  />
         </div>
-        <div className="text-white flex flex-col">
+        <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="email">
             E-mail
           </label>
           <Textarea id= "EmailInput"value={EmailInput} className="text-white" onChange={handleTextChange2} placeholder="Your email address"  />
         </div>
-        <div className="text-white flex flex-col">
+        <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="message">
             Message
           </label>

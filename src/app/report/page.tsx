@@ -194,7 +194,7 @@ ANONYMOUS REPORTING
             <Button onClick={handleUpload} className="bg-blue-600 hover:bg-blue-700 text-white">Upload</Button>
           </div>
         </div>
-        <div className="flex flex-col space-y-4">
+        <div style={{backgroundColor:"black"}}className="flex flex-col space-y-4">
           <Textarea value={textInput} onChange={handleTextChange} className="mb-4 h-32 text-white border-gray-300" placeholder="Enter your text here." />
           <Button onClick={handleTextSubmit} className="bg-blue-600 hover:bg-blue-700 text-white">Upload Text</Button>
             
