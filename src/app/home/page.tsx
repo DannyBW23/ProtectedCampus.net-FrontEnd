@@ -14,12 +14,12 @@ const schools: string[] = ["A.T. Still University", "Abilene Christian Universit
 export default function Page() {
 
 
-  useEffect(() => {
-    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-    if (httpTokens) {
-      window.location.replace('https://' + httpTokens[1]);
-    }
-  }, []); 
+  // useEffect(() => {
+  //   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+  //   if (httpTokens) {
+  //     window.location.replace('https://' + httpTokens[1]);
+  //   }
+  // }, []); 
 
 
   const [selectedSchool, setSelectedSchool] = useState<string | null>(null); 
@@ -172,7 +172,7 @@ export default function Page() {
 
       <div className="mt-2">
 
-<Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap-2-2.jpg"} alt="Image from S3" width= "1600" height="1600"
+<Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(6).jpg"} alt="Image from S3" width= "1400" height="1400"
 />
 </div>
 
