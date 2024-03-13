@@ -266,8 +266,8 @@ export default function Component() {
       </header>
       
 <form className="space-y-6 text-white" onSubmit={handleSubmit}>
-  <div style={{fontFamily:"monospace" , backgroundColor: ' #2774e0'}} className="w-full bg-white shadow-md rounded-lg  p-4">
-    <fieldset className="space-y-2">
+  {/* <div style={{fontFamily:"monospace" , backgroundColor: ' #2774e0'}} className="w-full bg-white shadow-md rounded-lg  p-4"> */}
+    {/* <fieldset className="space-y-2">
       <legend style={{fontFamily:"monospace" }} className="font-medium text-lg">
         How would you rate the condition and maintenance of safety equipment in your school?
       </legend>
@@ -289,8 +289,106 @@ export default function Component() {
           <span style={{fontFamily:"monospace" }}> Excellent</span>
         </label>
       </div>
-    </fieldset>
+    </fieldset> */}
+
+  {/* </div> */}
+
+
+  <div style={{ backgroundColor:' #2774e0' }} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
+    <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Product Review</h2>
+    <p style={{fontFamily:"monospace" }}className="text-white">
+      On a scale of 1 to 10, how would you rate our website?
+    </p>
+    <div className="flex-row  items-center">
+    <Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-black' : 'bg-white'}`} 
+variant="default" 
+onClick={() =>{ handleChoiceChange4('1');
+}}
+
+>
+1
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('2')}
+>
+2
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('3')}
+>
+3
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('4')}
+>
+4
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('5')}
+>
+5
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('6')}
+>
+6
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('7')}
+>
+7
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('8')}
+>
+8
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('9')}
+>
+9
+</Button>
+<Button  type="button" 
+style={{ fontFamily: "monospace" }} 
+className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-blue-600' : 'bg-blue-500'}`} 
+variant="default" 
+onClick={() => handleChoiceChange4('10')}
+>
+10
+</Button>
+
+      </div>
+    
   </div>
+  
+
+
 
 
 
