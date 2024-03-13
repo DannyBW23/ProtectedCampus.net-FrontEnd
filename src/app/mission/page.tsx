@@ -5,12 +5,12 @@ import Image from 'next/image';
 import React, {useEffect} from 'react';
 import { useSearchParams } from "next/navigation";
 export default function Component() {
-  useEffect(() => {
-    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-    if (httpTokens) {
-      window.location.replace('https://' + httpTokens[1]);
-    }
-  }, []); 
+  // useEffect(() => {
+  //   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+  //   if (httpTokens) {
+  //     window.location.replace('https://' + httpTokens[1]);
+  //   }
+  // }, []); 
   const searchParams = useSearchParams()
   const selectedSchool = searchParams.get('selectedSchool');
   return (
@@ -77,8 +77,8 @@ export default function Component() {
       </header>
 
 
- <div className="text-center" >
- <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(4).jpg"} alt="Image from S3" width= "4000" height="4000"
+ <div className="ml-11 text-center" >
+ <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(4).jpg"}alt="Image from S3" width= "1330" height="1330"
  /> 
       </div>
     <div className="mt-5">
