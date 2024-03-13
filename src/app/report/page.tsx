@@ -200,7 +200,11 @@ ANONYMOUS REPORTING
             
         </div>
       </div>
-            
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} className=" mt-5 text-align: center;">
+
+<Image src={" https://profilepic23.s3.amazonaws.com/ccgray.jpeg"} alt="Image from S3" width= "400" height="400"
+/>
+</div> 
       </div>
  </html>
   );

@@ -24,7 +24,7 @@ export default function Component() {
   const router = useRouter();
   const [selectedQuiz, setSelectedQuiz] = useState('');
 
-  // Function to change the quiz based on selection
+
   const handleQuizChange =(event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedQuiz(event.target.value);
   };
@@ -200,8 +200,13 @@ export default function Component() {
 
 
       </header> 
-   
+      <div style={{backgroundColor:"bg-gray-200" ,display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200%' }} className=" mt-5 text-align: center; position: absolute; bottom: 0;">
+
+<Image src={" https://profilepic23.s3.amazonaws.com/ccgray.jpeg"} alt="Image from S3" width= "400" height="400"
+/>
+</div>  
       </div>
+      
    ) : (
     <main>
          <div className="bg-gray-100 min-h-screen">
@@ -384,7 +389,7 @@ onClick={() => handleChoiceChange4('10')}
 </Button>
 
       </div>
-    
+ 
   </div>
   
 
@@ -589,7 +594,9 @@ No
   </button>
 </div>
 </form> 
+
 </div>
+
     </main>
   )}
   {submitSuccess && (
@@ -598,6 +605,7 @@ No
     </div>
   )}
 </>
+
 </html>
 );
 

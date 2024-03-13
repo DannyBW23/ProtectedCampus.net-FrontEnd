@@ -171,9 +171,12 @@ export default function Component() {
       </form>
     
       </div>
-      
+
 <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(3).jpg"} alt="Image from S3" width= "1600" height="1600"
 />
+
+
+
 </div>
         
   </html>
