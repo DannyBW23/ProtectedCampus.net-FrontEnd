@@ -147,19 +147,19 @@ export default function Component() {
           <label className="mb-2 text-black font-medium" htmlFor="full-name">
             Full Name
           </label>
-          <Textarea id= "NameInput"value={NameInput} className="text-white" onChange={handleTextChange} placeholder="Your full name"  />
+          <Textarea style={{backgroundColor:"black"}} id= "NameInput"value={NameInput} className="text-white" onChange={handleTextChange} placeholder="Your full name"  />
         </div>
-        <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
+        <div className="text-white flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="email">
             E-mail
           </label>
-          <Textarea id= "EmailInput"value={EmailInput} className="text-white" onChange={handleTextChange2} placeholder="Your email address"  />
+          <Textarea style={{backgroundColor:"black"}}  id= "EmailInput"value={EmailInput} className="text-white" onChange={handleTextChange2} placeholder="Your email address"  />
         </div>
         <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="message">
             Message
           </label>
-          <Textarea id="MessageInput" value={MessageInput} className="text-white" onChange={handleTextChange3} placeholder="Your message" />
+          <Textarea style={{backgroundColor:"black"}}  id="MessageInput" value={MessageInput} className="text-white" onChange={handleTextChange3} placeholder="Your message" />
         </div>
         <Button onClick={handleTextSubmit} className="w-full mt-3">Contact Us</Button>
       </form>
