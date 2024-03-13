@@ -143,7 +143,7 @@ export default function Component() {
       <div key="1" className="max-w-md mx-auto">
       <h1 className="text-3xl text-black font-semibold text-center mb-6 mt-3">Contact Us</h1>
       <form className="border border-gray-200 rounded-md p-4">
-        <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
+        <div className="text-white flex flex-col">
           <label className="mb-2 text-black font-medium" htmlFor="full-name">
             Full Name
           </label>
