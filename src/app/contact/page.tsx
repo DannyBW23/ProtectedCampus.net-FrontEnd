@@ -155,7 +155,7 @@ export default function Component() {
           </label>
           <Textarea style={{backgroundColor:"black"}}  id= "EmailInput"value={EmailInput} className="text-white" onChange={handleTextChange2} placeholder="Your email address"  />
         </div>
-        <div style={{backgroundColor:"black"}}className="text-white flex flex-col">
+        <div className="text-white flex flex-col">
           <label className="mb-2 mt-2 text-black font-medium" htmlFor="message">
             Message
           </label>
