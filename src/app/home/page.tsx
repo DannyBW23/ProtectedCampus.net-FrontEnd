@@ -118,7 +118,7 @@ export default function Page() {
         <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
           <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width="150" height="150" />
         </div>
-        <h1 style={{ fontSize: '60px', fontFamily: "monospace" }}>PROTECTED CAMPUS</h1>
+        <h1 style={{ fontSize: '60px', fontFamily: "Courier Prime" }}>PROTECTED CAMPUS</h1>
       </header>
 
       <main className="px-4 sm:px-6 lg:px-8 py-8">
@@ -170,9 +170,9 @@ export default function Page() {
  
      
 
-      <div className="mt-2">
+      <div  style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}} className="mt-2">
 
-<Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(6).jpg"} alt="Image from S3" width= "1400" height="1400"
+<Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(7)+copy.jpg"} alt="Image from S3" width= "1400" height="1400"
 />
 </div>
 

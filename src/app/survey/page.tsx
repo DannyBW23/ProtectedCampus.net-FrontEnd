@@ -155,13 +155,13 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
 />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTED CAMPUS</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"Courier Prime" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
       <header  className="mb-8" >
-      <h2 style={{fontFamily:"monospace",fontSize: '32px'}}className=" text-black text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
-        <p style={{fontFamily:"monospace" }}className="text-black text-center mt-2">
+      <h2 style={{fontFamily:"Courier Prime",fontSize: '32px'}}className=" text-black text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
+        <p style={{fontFamily:"Courier Prime" }}className="text-black text-center mt-2">
           Your feedback is important to us. Please take a moment to answer the following questions. Protect your campus.
         </p>
 
@@ -266,7 +266,7 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
 />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"monospace" }} className="text-white">PROTECTED CAMPUS</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"Courier Prime" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
@@ -300,13 +300,13 @@ export default function Component() {
 
 
   <div style={{ backgroundColor:' #2774e0' }} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
-    <h2 style={{fontFamily:"monospace" }}className="text-xl font-semibold text-white">Product Review</h2>
-    <p style={{fontFamily:"monospace" }}className="text-white">
+    <h2 style={{fontFamily:"Courier Prime" }}className="text-xl font-semibold text-white">Product Review</h2>
+    <p style={{fontFamily:"Courier Prime" }}className="text-white">
       On a scale of 1 to 10, how would you rate our website?
     </p>
     <div className="flex-row  items-center">
     <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '1' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() =>{ handleChoiceChange4('1');
@@ -316,7 +316,7 @@ onClick={() =>{ handleChoiceChange4('1');
 1
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '2' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('2')}
@@ -324,7 +324,7 @@ onClick={() => handleChoiceChange4('2')}
 2
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '3' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('3')}
@@ -332,7 +332,7 @@ onClick={() => handleChoiceChange4('3')}
 3
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '4' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('4')}
@@ -340,7 +340,7 @@ onClick={() => handleChoiceChange4('4')}
 4
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '5' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('5')}
@@ -348,7 +348,7 @@ onClick={() => handleChoiceChange4('5')}
 5
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '6' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('6')}
@@ -356,7 +356,7 @@ onClick={() => handleChoiceChange4('6')}
 6
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '7' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('7')}
@@ -364,7 +364,7 @@ onClick={() => handleChoiceChange4('7')}
 7
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '8' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('8')}
@@ -372,7 +372,7 @@ onClick={() => handleChoiceChange4('8')}
 8
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '9' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('9')}
@@ -380,7 +380,7 @@ onClick={() => handleChoiceChange4('9')}
 9
 </Button>
 <Button  type="button" 
-style={{ fontFamily: "monospace" }} 
+
 className={`mr-2 text-white ${selectedChoice4 === '10' ? 'bg-gray-300' : 'bg-blue-500'}`} 
 variant="default" 
 onClick={() => handleChoiceChange4('10')}
@@ -589,7 +589,7 @@ No
 </main> */}
 <form className="space-y-6 text-white" onSubmit={handleSubmit}>
 <div style={{ display: 'grid', placeItems: 'center' }}>
-  <button style={{ fontFamily: "monospace", backgroundColor: '#2774e0', marginTop: "5px", width: "100px" }}className="center px-4 py-2 text-white rounded-md" type="submit">
+  <button style={{  backgroundColor: '#2774e0', marginTop: "5px", width: "100px" }}className="center px-4 py-2 text-white rounded-md" type="submit">
     Submit
   </button>
 </div>
