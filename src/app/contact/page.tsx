@@ -10,12 +10,12 @@ import { Textarea } from "@/components/ui/textarea"
 
 import React, { useState, useEffect } from "react";
 export default function Component() {
-  useEffect(() => {
-    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-    if (httpTokens) {
-      window.location.replace('https://' + httpTokens[1]);
-    }
-  }, []); 
+  // useEffect(() => {
+  //   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+  //   if (httpTokens) {
+  //     window.location.replace('https://' + httpTokens[1]);
+  //   }
+  // }, []); 
   const searchParams = useSearchParams();
   const selectedSchool = searchParams.get('selectedSchool');
 
@@ -136,7 +136,7 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150" height="150"
  />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"Courier Prime" }} className="text-white">PROTECTED CAMPUS</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"Courier" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
