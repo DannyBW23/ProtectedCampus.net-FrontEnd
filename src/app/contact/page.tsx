@@ -10,12 +10,12 @@ import { Textarea } from "@/components/ui/textarea"
 
 import React, { useState, useEffect } from "react";
 export default function Component() {
-  // useEffect(() => {
-  //   var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-  //   if (httpTokens) {
-  //     window.location.replace('https://' + httpTokens[1]);
-  //   }
-  // }, []); 
+  useEffect(() => {
+    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+    if (httpTokens) {
+      window.location.replace('https://' + httpTokens[1]);
+    }
+  }, []); 
   const searchParams = useSearchParams();
   const selectedSchool = searchParams.get('selectedSchool');
 
@@ -141,22 +141,22 @@ export default function Component() {
       </header>
       
       <div key="1" className="max-w-md mx-auto">
-      <h1 style={{color:"black"}}className="text-3xl text-blue font-bold text-center mb-6 mt-3">CONTACT US </h1>
+      <h1 style={{fontFamily:"Courier",color:"black"}}className="text-3xl text-blue font-bold text-center mb-6 mt-3">CONTACT US </h1>
       <form className="border border-gray-200 rounded-md p-4">
         <div className="text-white flex flex-col">
-          <label className="mb-2 text-black font-medium" htmlFor="full-name">
+          <label style={{fontFamily:"Courier"}} className="mb-2 text-black font-medium" htmlFor="full-name">
             Full Name
           </label>
           <Textarea style={{backgroundColor:"black"}} id= "NameInput"value={NameInput} className="text-white" onChange={handleTextChange} placeholder="Your full name"  />
         </div>
         <div className="text-white flex flex-col">
-          <label className="mb-2 mt-2 text-black font-medium" htmlFor="email">
+          <label style={{fontFamily:"Courier"}} className="mb-2 mt-2 text-black font-medium" htmlFor="email">
             E-mail
           </label>
           <Textarea style={{backgroundColor:"black"}}  id= "EmailInput"value={EmailInput} className="text-white" onChange={handleTextChange2} placeholder="Your email address"  />
         </div>
         <div className="text-white flex flex-col">
-          <label className="mb-2 mt-2 text-black font-medium" htmlFor="message">
+          <label style={{fontFamily:"Courier"}} className="mb-2 mt-2 text-black font-medium" htmlFor="message">
             Message
           </label>
           <Textarea style={{backgroundColor:"black"}}  id="MessageInput" value={MessageInput} className="text-white" onChange={handleTextChange3} placeholder="Your message" />
@@ -172,7 +172,7 @@ export default function Component() {
     
       </div>
 
-<Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(3).jpg"} alt="Image from S3" width= "1600" height="1600"
+<Image src={"https://profilepic23.s3.amazonaws.com/jpeg1.jpeg"} alt="Image from S3" width= "1600" height="1440"
 />
 
 

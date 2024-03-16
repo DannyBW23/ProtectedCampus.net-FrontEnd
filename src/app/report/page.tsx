@@ -143,10 +143,10 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
           <div style={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
             <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width="150" height="150" />
           </div>
-          <h1 style={{ fontSize: '35px', fontFamily: "Courier Prime" }} className="text-white">PROTECTED CAMPUS</h1>
+          <h1 style={{ fontSize: '35px', fontFamily: "Courier" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
-      <header style={{fontSize:'35px',fontFamily: "Courier Prime" }} className="text-center text-black ">
+      <header style={{fontSize:'35px',fontFamily: "Courier" }} className="text-center text-black ">
 ANONYMOUS REPORTING
 
 
@@ -166,13 +166,13 @@ ANONYMOUS REPORTING
 </select>
         <div className="flex flex-col space-y-4 mb-6 p-6 bg-white border border-gray-300 rounded-md">
           <div className="flex justify-center items-center w-full h-32 bg-gray-100 border-2 border-dashed border-gray-300 rounded-md cursor-pointer mb-4">
-          <span style={{fontFamily:"Courier Prime" }}className="text-gray-500">Click &quot;Choose File&quot; to select a file and then press &quot;Upload&quot; to report it</span>
+          <span className="text-gray-500">Click &quot;Choose File&quot; to select a file and then press &quot;Upload&quot; to report it</span>
 
 
           </div>
           <div className="flex justify-between">
             <label className="block">
-            <p style={{ fontFamily: "monospace", color: "black" ,fontSize:"15px" }} >
+            <p style={{  color: "black" ,fontSize:"15px" }} >
            {selectedFile
             ? `Selected File: ${selectedFile.name}`
             : ""}
@@ -195,7 +195,7 @@ ANONYMOUS REPORTING
           </div>
         </div>
         <div className="flex flex-col space-y-4">
-          <Textarea style={{backgroundColor:"black",fontFamily:"Courier Prime" }}value={textInput} onChange={handleTextChange} className="mb-4 h-32 text-white border-gray-300" placeholder="Enter your text here." />
+          <Textarea style={{backgroundColor:"black" }}value={textInput} onChange={handleTextChange} className="mb-4 h-32 text-white border-gray-300" placeholder="Enter your text here." />
           <Button onClick={handleTextSubmit} className="bg-blue-600 hover:bg-blue-700 text-white">Upload Text</Button>
             
         </div>

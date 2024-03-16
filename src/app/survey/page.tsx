@@ -155,13 +155,13 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
 />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"Courier Prime" }} className="text-white">PROTECTED CAMPUS</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"Courier" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
       <header  className="mb-8" >
-      <h2 style={{fontFamily:"Courier Prime",fontSize: '32px'}}className=" text-black text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
-        <p style={{fontFamily:"Courier Prime" }}className="text-black text-center mt-2">
+      <h2 style={{fontFamily:"Courier",fontSize: '32px'}}className=" text-black text-center font-semibold mt-5 mb-5">SCHOOL SAFETY SURVERY</h2>
+        <p style={{fontFamily:"Courier" }}className="text-black text-center mt-2">
           Your feedback is important to us. Please take a moment to answer the following questions. Protect your campus.
         </p>
 
@@ -175,13 +175,13 @@ export default function Component() {
       </select>
       {selectedQuiz === '' && (
         <div className="mt-5">
-     <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(2).jpg"} alt="Image from S3" width= "640"height="900"
+     <Image src={"https://profilepic23.s3.amazonaws.com/3.jpg"} alt="Image from S3" width= "640"height="900"
      /> 
      </div>
       )}
        {selectedQuiz === '0' && (
           <div className="mt-5">
-          <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(2).jpg"} alt="Image from S3" width= "640"height="900"
+          <Image src={"https://profilepic23.s3.amazonaws.com/3.jpg"} alt="Image from S3" width= "640"height="900"
           /> 
           </div>
       )}
@@ -266,7 +266,7 @@ export default function Component() {
 <Image src={"https://profilepic23.s3.amazonaws.com/Screen+Shot+2024-01-09+at+4.16.13+AM.png"} alt="Image from S3" width= "150"height="150"
 />
 </div> 
-          <h1 style={{ fontSize: '35px', fontFamily:"Courier Prime" }} className="text-white">PROTECTED CAMPUS</h1>
+          <h1 style={{ fontSize: '35px', fontFamily:"Courier" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
       
@@ -300,8 +300,8 @@ export default function Component() {
 
 
   <div style={{ backgroundColor:' #2774e0' }} className="flex flex-col space-y-4 bg-white dark:bg-gray-900 p-6 rounded-md shadow-md">
-    <h2 style={{fontFamily:"Courier Prime" }}className="text-xl font-semibold text-white">Product Review</h2>
-    <p style={{fontFamily:"Courier Prime" }}className="text-white">
+    <h2 style={{fontFamily:"Courier" }}className="text-xl font-semibold text-white">Product Review</h2>
+    <p className="text-white">
       On a scale of 1 to 10, how would you rate our website?
     </p>
     <div className="flex-row  items-center">
