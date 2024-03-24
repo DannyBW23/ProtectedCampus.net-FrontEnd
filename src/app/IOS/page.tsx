@@ -34,9 +34,6 @@ const selectedSchool = searchParams.get('selectedSchool');
               <>
               <Button style={{backgroundColor:'#5A5A5A'}}className="text-black  hover:bg-gray-300">REPORT</Button> 
               <Button style={{backgroundColor:'#5A5A5A'}} className="text-black bg-transparent hover:bg-gray-300">SURVEY</Button> </>)} 
-            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
-            <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
-            </Link> */}
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
@@ -46,16 +43,18 @@ const selectedSchool = searchParams.get('selectedSchool');
                   </Button>
              </Link>
              
-                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
-                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
-                  </Link> */}
+               
 
 <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">
                     CONTACT
                   </Button>
              </Link>
-
+             <Link href={selectedSchool ? `/login?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/login"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    LOGIN
+                  </Button>
+             </Link>
           </div>
           <div className="flex items-center space-x-4">
          

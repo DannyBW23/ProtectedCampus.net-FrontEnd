@@ -124,6 +124,13 @@ const FileUploadWithS3: React.FC<FileUploadProps> = ({ onFileUpload }) => {
             <Button className="text-black bg-transparent hover:bg-gray-100">
                     CONTACT
                   </Button>
+              
+
+             </Link>
+             <Link href={selectedSchool ? `/login?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/login"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    LOGIN
+                  </Button>
              </Link>
 
                   {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>

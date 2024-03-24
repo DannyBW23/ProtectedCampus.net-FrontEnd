@@ -135,6 +135,11 @@ export default function Component() {
                     CONTACT
                   </Button>
              </Link>
+             <Link href={selectedSchool ? `/login?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/login"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    LOGIN
+                  </Button>
+             </Link>
                   {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
                   <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
                   </Link> */}
@@ -246,6 +251,11 @@ export default function Component() {
                    <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">
                     CONTACT
+                  </Button>
+             </Link>
+             <Link href={selectedSchool ? `/login?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/login"}>
+            <Button className="text-black bg-transparent hover:bg-gray-100">
+                    LOGIN
                   </Button>
              </Link>
           </div>

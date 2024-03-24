@@ -3,16 +3,34 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 import React, {useEffect} from 'react';
-import { useSearchParams } from "next/navigation";
-export default function Component() {
+import { useSearchParams } from 'next/navigation';
+import { SignUp } from "@clerk/nextjs";
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from "next/navigation";
+
+
+export default function Component() 
+
+{ 
   useEffect(() => {
-    var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
-    if (httpTokens) {
-      window.location.replace('https://' + httpTokens[1]);
-    }
-  }, []); 
+  var httpTokens = /^http:\/\/(.*)$/.exec(window.location.href);
+  if (httpTokens) {
+    window.location.replace('https://' + httpTokens[1]);
+  }
+}, []); 
+
+
   const searchParams = useSearchParams()
-  const selectedSchool = searchParams.get('selectedSchool');
+  const router = useRouter();
+  const { isSignedIn } = useUser();
+  
+
+  
+    if (isSignedIn)  {
+        router.push(`/home`);
+      }
+     [isSignedIn, router];
+const selectedSchool = searchParams.get('selectedSchool');
   return (
     <html>
     <meta name="viewport" content="width=device-width, initial-scale=.4" />
@@ -28,14 +46,11 @@ export default function Component() {
             <Link href={selectedSchool ? `/survey?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/survey"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">SURVEY</Button>
             </Link>   
-            </>)}  
+            </>)}
             {selectedSchool === null && (
               <>
               <Button style={{backgroundColor:'#5A5A5A'}}className="text-black  hover:bg-gray-300">REPORT</Button> 
               <Button style={{backgroundColor:'#5A5A5A'}} className="text-black bg-transparent hover:bg-gray-300">SURVEY</Button> </>)} 
-            {/* <Link href={selectedSchool ? `/cert?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/cert"}>
-            <Button className="text-black bg-transparent hover:bg-gray-100">CERTIFICATIONS</Button>
-            </Link> */}
       <Link href={selectedSchool ? `/IOS?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/IOS"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">PROTOTYPE APP</Button>
             </Link>
@@ -44,20 +59,19 @@ export default function Component() {
                     MISSION
                   </Button>
              </Link>
-                  {/* <Link href={selectedSchool ? `/directory?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/directory"}>
-                  <Button className="text-black bg-transparent hover:bg-gray-100">DONATIONS</Button>
-                  </Link> */}
- <Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
+
+
+<Link href={selectedSchool ? `/contact?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/contact"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">
                     CONTACT
                   </Button>
              </Link>
+
              <Link href={selectedSchool ? `/login?selectedSchool=${encodeURIComponent(selectedSchool)}` : "/login"}>
             <Button className="text-black bg-transparent hover:bg-gray-100">
                     LOGIN
                   </Button>
              </Link>
-
 
           </div>
           <div className="flex items-center space-x-4">
@@ -79,28 +93,15 @@ export default function Component() {
           <h1 style={{ fontSize: '35px', fontFamily:"Courier" }} className="text-white">PROTECTED CAMPUS</h1>
         </div>
       </header>
-
-
- <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}className=" text-center" >
- <Image src={"https://profilepic23.s3.amazonaws.com/1.jpg"}alt="Image from S3" width= "1330" height="1330"
- /> 
-      </div>
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}className="mt-5">
-
-      <Image src={"https://profilepic23.s3.amazonaws.com/UI+website+RoadMap+(8).jpg"} alt="Image from S3" width= "1600" height="1600"
- />
- </div>
- <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} className=" mt-5 text-align: center;">
-
-<Image src={" https://profilepic23.s3.amazonaws.com/ccgray.jpeg"} alt="Image from S3" width= "400" height="400"
-/>
-</div> 
-
+      <div className="mt-5 "style={{alignItems: 'center',justifyContent: 'center', display: 'flex'}}>
+      <SignUp />
 
       </div>
-
-
-
+      </div>
 </html>
+    
+  )
+}
 
-  )}
+
+
