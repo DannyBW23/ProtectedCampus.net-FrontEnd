@@ -173,7 +173,7 @@ export default function Component() {
         <div className="max-w-4xl mx-auto p-6 flex flex-col items-center">
       <select  onChange={handleQuizChange} style={{width:"400px", backgroundColor:"black"}}className="select-css text-white" >
         
-        <option value="0">Select a Quiz</option>
+        <option value="0">Select a Survey</option>
         <option value="1">Anonymous Security & Safety Personnel Survey</option>
         <option value="2">Anonymous Public Survey</option>
         <option value="3">Anonymous Students/Faculty/Staff Survey</option>
