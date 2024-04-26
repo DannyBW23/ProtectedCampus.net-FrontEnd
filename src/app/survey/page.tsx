@@ -191,13 +191,13 @@ export default function Component() {
           </div>
       )}
       {selectedQuiz === '1' && (
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8MgBGnk3ezfnSheGCIjTnOYGifjkLGi1sdmC9ayLd4RA2Rw/viewform?embedded=true"width="640" height="3402">Loading…</iframe>
       )}
       {selectedQuiz === '2' && (
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHu7dpQlTjyl1j_-sWv2jv1Lx12f_TOP0rYMVPMoepAAckAQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx18xppMRRLCHrQotns_IYu-Ymg0PvFM8lsqO596uCshT9rQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
       )}
       {selectedQuiz === '3' && (
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8MgBGnk3ezfnSheGCIjTnOYGifjkLGi1sdmC9ayLd4RA2Rw/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
+        <iframe src= "https://docs.google.com/forms/d/e/1FAIpQLSdHu7dpQlTjyl1j_-sWv2jv1Lx12f_TOP0rYMVPMoepAAckAQ/viewform?embedded=true" width="640" height="3402">Loading…</iframe>
       )}
     </div>
 
